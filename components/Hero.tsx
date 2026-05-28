@@ -99,7 +99,7 @@ export default function Hero() {
       >
         {/* Eyebrow */}
         <motion.div variants={item} className="mb-6">
-          <span className="inline-flex items-center gap-2 text-sm text-[#9A8A84] border border-[rgba(201,133,106,0.2)] rounded-full px-4 py-1.5 bg-[#2A2320]/50">
+          <span className="inline-flex items-center gap-2 text-sm text-[#90788E] border border-[rgba(201,133,106,0.2)] rounded-full px-4 py-1.5 bg-[#20121E]/50">
             <span className="w-2 h-2 rounded-full bg-[#C9856A] animate-pulse" />
             Technical Product Leader · AI Systems · NTU MBA
           </span>
@@ -108,7 +108,7 @@ export default function Hero() {
         {/* Name */}
         <motion.h1
           variants={item}
-          className="text-5xl md:text-7xl lg:text-8xl font-bold text-[#F0E8E3] tracking-tight mb-4"
+          className="text-5xl md:text-7xl lg:text-8xl font-bold text-[#EDE5F0] tracking-tight mb-4"
         >
           Mohini Asthana
         </motion.h1>
@@ -116,7 +116,7 @@ export default function Hero() {
         {/* Animated tagline */}
         <motion.div
           variants={item}
-          className="text-2xl md:text-4xl font-semibold text-[#9A8A84] mb-8 h-12 flex items-center justify-center gap-3"
+          className="text-2xl md:text-4xl font-semibold text-[#90788E] mb-8 h-12 flex items-center justify-center gap-3"
         >
           <AnimatedWord />
         </motion.div>
@@ -124,7 +124,7 @@ export default function Hero() {
         {/* Subtitle */}
         <motion.p
           variants={item}
-          className="text-base md:text-lg text-[#9A8A84] max-w-2xl mx-auto leading-relaxed mb-10"
+          className="text-base md:text-lg text-[#90788E] max-w-2xl mx-auto leading-relaxed mb-10"
         >
           I build at the intersection of technology and human systems —
           making complex things feel effortless.
@@ -136,7 +136,7 @@ export default function Hero() {
             whileHover={{ scale: 1.05, boxShadow: "0 0 18px rgba(201,133,106,0.28), 0 2px 8px rgba(0,0,0,0.4)" }}
             whileTap={{ scale: 0.97 }}
             onClick={() => document.querySelector("#experience")?.scrollIntoView({ behavior: "smooth" })}
-            className="px-8 py-3.5 rounded-full text-sm font-semibold text-[#F0E8E3] cursor-pointer"
+            className="px-8 py-3.5 rounded-full text-sm font-semibold text-[#150D14] cursor-pointer"
             style={{ background: "linear-gradient(135deg, #D4926F 0%, #C9856A 50%, #B8705A 100%)", boxShadow: "0 0 18px rgba(201,133,106,0.28), 0 2px 8px rgba(0,0,0,0.4)" }}
           >
             View My Work
@@ -145,7 +145,7 @@ export default function Hero() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.97 }}
             onClick={() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })}
-            className="px-8 py-3.5 rounded-full text-sm font-semibold text-[#F0E8E3] border border-[rgba(201,133,106,0.2)] hover:border-[#C9856A] transition-colors duration-200 cursor-pointer"
+            className="px-8 py-3.5 rounded-full text-sm font-semibold text-[#C9856A] border border-[rgba(201,133,106,0.4)] hover:bg-[rgba(201,133,106,0.08)] transition-colors duration-200 cursor-pointer"
           >
             Get in Touch
           </motion.button>
@@ -159,11 +159,11 @@ export default function Hero() {
         transition={{ delay: 1.5, duration: 0.8 }}
         className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
       >
-        <span className="text-xs text-[#7A6A64] tracking-widest uppercase">Scroll</span>
+        <span className="text-xs text-[#90788E] tracking-widest uppercase">Scroll</span>
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ repeat: Infinity, duration: 1.8, ease: "easeInOut" }}
-          className="w-px h-8 bg-gradient-to-b from-[#C9856A] to-transparent"
+          className="w-px h-8 bg-gradient-to-b from-[rgba(201,133,106,0.5)] to-transparent"
         />
       </motion.div>
     </section>

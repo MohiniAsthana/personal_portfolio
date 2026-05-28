@@ -156,18 +156,18 @@ function CompanyCard({ entry, index }: { entry: CompanyEntry; index: number }) {
     >
       {/* Left — period + dot */}
       <div className="lg:text-right pt-1 hidden lg:block pr-6">
-        <div className="text-xs text-[#9A8A84] font-mono leading-relaxed">
+        <div className="text-xs text-[#90788E] font-mono leading-relaxed">
           {entry.overallPeriod.split("—").map((part, i) => (
             <span key={i} className="block">{i === 0 ? part.trim() : `— ${part.trim()}`}</span>
           ))}
         </div>
-        <div className="text-xs text-[#7A6A64] mt-1">{entry.location}</div>
+        <div className="text-xs text-[#90788E] mt-1">{entry.location}</div>
       </div>
 
       {/* Timeline dot */}
       <div className="hidden lg:flex absolute left-[180px] top-1.5 -translate-x-1/2 flex-col items-center z-10">
         <div
-          className="w-3 h-3 rounded-full border-2 border-[#1A1614] transition-all duration-300 group-hover:scale-125"
+          className="w-3 h-3 rounded-full border-2 border-[#150D14] transition-all duration-300 group-hover:scale-125"
           style={{
             backgroundColor: entry.accentColor,
             boxShadow: `0 0 12px ${entry.accentColor}60`,
@@ -176,7 +176,7 @@ function CompanyCard({ entry, index }: { entry: CompanyEntry; index: number }) {
       </div>
 
       {/* Right — company card */}
-      <div className="gradient-border rounded-2xl bg-[#2A2320] group-hover:bg-[#2E2522] transition-colors duration-300 overflow-hidden">
+      <div className="gradient-border rounded-2xl transition-all duration-300 overflow-hidden group-hover:brightness-110">
         {/* Company header */}
         <div className="px-6 pt-6 pb-4 border-b border-[rgba(201,133,106,0.12)]">
           <div className="flex items-start justify-between gap-4 flex-wrap">
@@ -186,9 +186,9 @@ function CompanyCard({ entry, index }: { entry: CompanyEntry; index: number }) {
             >
               {entry.company}
             </h3>
-            <span className="text-xs font-mono text-[#7A6A64] lg:hidden">{entry.overallPeriod}</span>
+            <span className="text-xs font-mono text-[#90788E] lg:hidden">{entry.overallPeriod}</span>
           </div>
-          <p className="text-sm text-[#9A8A84] leading-relaxed mt-2">{entry.description}</p>
+          <p className="text-sm text-[#90788E] leading-relaxed mt-2">{entry.description}</p>
         </div>
 
         {/* Role timeline inside card */}
@@ -230,17 +230,17 @@ function CompanyCard({ entry, index }: { entry: CompanyEntry; index: number }) {
 
                 <div className="flex-1 pb-2">
                   <div className="flex items-center justify-between gap-3 flex-wrap mb-2">
-                    <span className="text-sm font-semibold text-[#F0E8E3]">{role.title}</span>
-                    <span className="text-xs font-mono text-[#7A6A64]">{role.period}</span>
+                    <span className="text-sm font-semibold text-[#EDE5F0]">{role.title}</span>
+                    <span className="text-xs font-mono text-[#90788E]">{role.period}</span>
                   </div>
                   {role.highlightGroups ? (
                     <div className="space-y-3">
                       {role.highlightGroups.map((group) => (
                         <div key={group.label}>
-                          <span className="text-xs font-mono text-[#7A6A64] block mb-1">{group.label}</span>
+                          <span className="text-xs font-mono text-[#90788E] block mb-1">{group.label}</span>
                           <ul className="space-y-1.5">
                             {group.items.map((h) => (
-                              <li key={h} className="flex items-start gap-2 text-xs text-[#9A8A84]">
+                              <li key={h} className="flex items-start gap-2 text-xs text-[#90788E]">
                                 <span
                                   className="mt-1.5 w-1 h-1 rounded-full shrink-0"
                                   style={{ backgroundColor: entry.accentColor, opacity: 0.6 }}
@@ -255,7 +255,7 @@ function CompanyCard({ entry, index }: { entry: CompanyEntry; index: number }) {
                   ) : (
                     <ul className="space-y-1.5">
                       {role.highlights.map((h) => (
-                        <li key={h} className="flex items-start gap-2 text-xs text-[#9A8A84]">
+                        <li key={h} className="flex items-start gap-2 text-xs text-[#90788E]">
                           <span
                             className="mt-1.5 w-1 h-1 rounded-full shrink-0"
                             style={{ backgroundColor: entry.accentColor, opacity: 0.6 }}
@@ -278,7 +278,8 @@ function CompanyCard({ entry, index }: { entry: CompanyEntry; index: number }) {
               key={tag}
               className="text-xs px-2.5 py-1 rounded-full border"
               style={{
-                borderColor: `${entry.accentColor}30`,
+                backgroundColor: "rgba(201,133,106,0.1)",
+                borderColor: "rgba(201,133,106,0.2)",
                 color: entry.accentColor,
               }}
             >
@@ -296,7 +297,7 @@ export default function Experience() {
   const headerInView = useInView(headerRef, { once: true, margin: "-80px" });
 
   return (
-    <section id="experience" className="py-24 px-6 bg-[#1E1714] border-t border-[rgba(201,133,106,0.07)]">
+    <section id="experience" className="py-24 px-6 bg-[#180F17] border-t border-[rgba(201,133,106,0.07)]">
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <motion.div
@@ -309,7 +310,7 @@ export default function Experience() {
           <span className="text-sm text-[#C9856A] font-mono tracking-wider uppercase block mb-4">
             02. Experience
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-[#F0E8E3]">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#EDE5F0]">
             Where the work happened
           </h2>
         </motion.div>

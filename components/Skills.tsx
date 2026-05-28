@@ -79,7 +79,7 @@ export default function Skills() {
   const headerInView = useInView(headerRef, { once: true, margin: "-80px" });
 
   return (
-    <section id="skills" className="py-24 px-6 bg-[#1A1614] border-t border-[rgba(201,133,106,0.07)]">
+    <section id="skills" className="py-24 px-6 bg-[#150D14] border-t border-[rgba(201,133,106,0.07)]">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <motion.div
@@ -92,10 +92,10 @@ export default function Skills() {
           <span className="text-sm text-[#C9856A] font-mono tracking-wider uppercase block mb-4">
             03. Skills
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-[#F0E8E3] mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#EDE5F0] mb-4">
             The intersection where I live
           </h2>
-          <p className="text-[#9A8A84] max-w-xl">
+          <p className="text-[#90788E] max-w-xl">
             Select a category, then explore individual skills. Click any skill to see how I use it.
           </p>
         </motion.div>
@@ -110,12 +110,12 @@ export default function Skills() {
                 whileHover={{ x: 4 }}
                 className={`shrink-0 flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all duration-200 cursor-pointer text-left border ${
                   activeGroup.category === group.category
-                    ? "border-transparent text-[#F0E8E3]"
-                    : "border-[rgba(201,133,106,0.12)] text-[#9A8A84] hover:text-[#F0E8E3] bg-transparent"
+                    ? "border-transparent text-[#EDE5F0]"
+                    : "border-[rgba(201,133,106,0.12)] text-[#90788E] hover:text-[#EDE5F0] bg-transparent"
                 }`}
                 style={
                   activeGroup.category === group.category
-                    ? { background: `linear-gradient(135deg, ${group.color}20, ${group.color}10)`, borderColor: `${group.color}40` }
+                    ? { background: `linear-gradient(135deg, ${group.color}20, ${group.color}10)`, borderColor: `rgba(201,133,106,0.4)` }
                     : {}
                 }
               >
@@ -145,7 +145,7 @@ export default function Skills() {
                     className={`text-left p-4 rounded-xl border transition-all duration-200 cursor-pointer ${
                       activeSkill?.name === skill.name
                         ? "border-transparent"
-                        : "border-[rgba(201,133,106,0.12)] bg-[#2A2320] hover:border-[rgba(201,133,106,0.12)]"
+                        : "border-[rgba(201,133,106,0.12)] bg-gradient-to-br from-[#2A1728] to-[#1C0F1A] hover:border-[rgba(201,133,106,0.25)]"
                     }`}
                     style={
                       activeSkill?.name === skill.name
@@ -168,14 +168,14 @@ export default function Skills() {
                           initial={{ opacity: 0, height: 0 }}
                           animate={{ opacity: 1, height: "auto" }}
                           exit={{ opacity: 0, height: 0 }}
-                          className="text-xs text-[#9A8A84] leading-relaxed mt-2"
+                          className="text-xs text-[#90788E] leading-relaxed mt-2"
                         >
                           {skill.description}
                         </motion.p>
                       )}
                     </AnimatePresence>
                     {activeSkill?.name !== skill.name && (
-                      <div className="text-xs text-[#7A6A64]">Click to explore</div>
+                      <div className="text-xs text-[#90788E]">Click to explore</div>
                     )}
                   </motion.button>
                 ))}

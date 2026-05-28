@@ -23,7 +23,7 @@ export default function About() {
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="about" className="py-24 px-6 bg-[#1A1614] border-t border-[rgba(201,133,106,0.07)]">
+    <section id="about" className="py-24 px-6 bg-[#150D14] border-t border-[rgba(201,133,106,0.07)]">
       <div className="max-w-6xl mx-auto">
         <motion.div
           ref={ref}
@@ -43,20 +43,20 @@ export default function About() {
             <div>
               <motion.h2
                 variants={fadeUp}
-                className="text-3xl md:text-4xl font-bold text-[#F0E8E3] mb-8 leading-tight"
+                className="text-3xl md:text-4xl font-bold text-[#EDE5F0] mb-8 leading-tight"
               >
                 I&apos;ve always believed the hardest problems aren&apos;t technical —
                 <span className="gradient-text"> they&apos;re human.</span>
               </motion.h2>
 
-              <motion.div variants={stagger} className="space-y-5 text-[#9A8A84] leading-relaxed">
+              <motion.div variants={stagger} className="space-y-5 text-[#90788E] leading-relaxed">
                 <motion.p variants={fadeUp}>
                   My career started in engineering. At Cisco, I built infrastructure monitoring
                   systems from the ground up — alert platforms, predictive remediation tools, the kind
                   of work that lives deep in the stack and rarely gets seen. But what I kept noticing
                   wasn&apos;t the technology. It was the gap between what systems{" "}
-                  <em className="text-[#F0E8E3]">could</em> do and what people actually{" "}
-                  <em className="text-[#F0E8E3]">understood</em> about them.
+                  <em className="text-[#EDE5F0]">could</em> do and what people actually{" "}
+                  <em className="text-[#EDE5F0]">understood</em> about them.
                 </motion.p>
 
                 <motion.p variants={fadeUp}>
@@ -77,7 +77,7 @@ export default function About() {
                   As I complete my MBA, I&apos;m studying that translation more formally — researching how humans and AI systems make decisions together, where trust breaks down, and how leadership shapes those dynamics. Somewhere along the way, I became genuinely fascinated by agentic systems: not just what they can do, but what they reveal about the humans working alongside them. The MBA gives me the strategic lens to make that alignment deliberate and durable.
                 </motion.p>
 
-                <motion.p variants={fadeUp} className="text-[#F0E8E3] font-medium">
+                <motion.p variants={fadeUp} className="text-[#EDE5F0] font-medium">
                   The thread across all of it: technology is most powerful when it disappears into
                   the background and just <em>works</em>{" "}for people. That&apos;s what I build toward.
                 </motion.p>
@@ -111,10 +111,10 @@ export default function About() {
                   <motion.div
                     key={h.label}
                     variants={fadeUp}
-                    className="gradient-border rounded-xl px-6 py-5 bg-[#2A2320] flex items-center gap-5"
+                    className="gradient-border rounded-xl px-6 py-5 flex items-center gap-5"
                   >
                     <div className="text-3xl font-bold gradient-text shrink-0">{h.value}</div>
-                    <div className="text-sm text-[#9A8A84]">{h.label}</div>
+                    <div className="text-sm text-[#90788E]">{h.label}</div>
                   </motion.div>
                 ))}
               </motion.div>

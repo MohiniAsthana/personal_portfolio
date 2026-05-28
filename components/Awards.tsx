@@ -85,7 +85,7 @@ function AwardCard({ award, index }: { award: Award; index: number }) {
       animate={inView ? { opacity: 1, scale: 1 } : {}}
       transition={{ duration: 0.5, ease: "easeOut", delay: index * 0.08 }}
       whileHover={{ y: -4, transition: { duration: 0.2 } }}
-      className="gradient-border rounded-2xl p-6 bg-[#2A2320] group cursor-default"
+      className="gradient-border rounded-2xl p-6 group cursor-default"
     >
       {/* Icon + year */}
       <div className="flex items-start justify-between mb-4">
@@ -95,7 +95,7 @@ function AwardCard({ award, index }: { award: Award; index: number }) {
         >
           {award.icon}
         </div>
-        <span className="text-xs text-[#7A6A64] font-mono">{award.year}</span>
+        <span className="text-xs text-[#90788E] font-mono">{award.year}</span>
       </div>
 
       {/* Content */}
@@ -105,8 +105,8 @@ function AwardCard({ award, index }: { award: Award; index: number }) {
       >
         {award.title}
       </h3>
-      <div className="text-xs text-[#7A6A64] mb-3 font-mono">{award.org}</div>
-      <p className="text-sm text-[#9A8A84] leading-relaxed">{award.description}</p>
+      <div className="text-xs text-[#90788E] mb-3 font-mono">{award.org}</div>
+      <p className="text-sm text-[#90788E] leading-relaxed">{award.description}</p>
     </motion.div>
   );
 }
@@ -116,7 +116,7 @@ export default function Awards() {
   const headerInView = useInView(headerRef, { once: true, margin: "-80px" });
 
   return (
-    <section id="awards" className="py-24 px-6 bg-[#1A1614] border-t border-[rgba(201,133,106,0.07)]">
+    <section id="awards" className="py-24 px-6 bg-[#150D14] border-t border-[rgba(201,133,106,0.07)]">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <motion.div
@@ -129,10 +129,10 @@ export default function Awards() {
           <span className="text-sm text-[#C9856A] font-mono tracking-wider uppercase block mb-4">
             05. Awards
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-[#F0E8E3] mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#EDE5F0] mb-4">
             The work, acknowledged
           </h2>
-          <p className="text-[#9A8A84] max-w-xl">
+          <p className="text-[#90788E] max-w-xl">
             Recognition from peers and organisations for impact that went beyond the expected.
           </p>
         </motion.div>

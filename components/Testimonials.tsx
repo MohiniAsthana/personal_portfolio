@@ -72,7 +72,7 @@ function TestimonialCard({
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.6, ease: "easeOut", delay: index * 0.1 }}
       onClick={onClick}
-      className="gradient-border rounded-2xl p-6 bg-[#2A2320] cursor-pointer transition-all duration-300 hover:bg-[#2E2522]"
+      className="gradient-border rounded-2xl p-6 cursor-pointer transition-all duration-300 hover:brightness-110"
       style={isActive ? { outline: `1px solid ${testimonial.accentColor}50` } : {}}
     >
       {/* Quote mark */}
@@ -91,7 +91,7 @@ function TestimonialCard({
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.2 }}
-          className="text-sm text-[#9A8A84] leading-relaxed mb-5"
+          className="text-sm text-[#90788E] leading-relaxed mb-5"
         >
           {isActive
             ? testimonial.quote
@@ -118,11 +118,11 @@ function TestimonialCard({
           {testimonial.initials}
         </div>
         <div className="flex-1 min-w-0">
-          <div className="text-sm font-semibold text-[#F0E8E3] truncate">{testimonial.name}</div>
-          <div className="text-xs text-[#7A6A64] truncate">{testimonial.title}</div>
+          <div className="text-sm font-semibold text-[#EDE5F0] truncate">{testimonial.name}</div>
+          <div className="text-xs text-[#90788E] truncate">{testimonial.title}</div>
         </div>
         <div className="text-right shrink-0">
-          <div className="text-xs text-[#7A6A64]">{testimonial.date}</div>
+          <div className="text-xs text-[#90788E]">{testimonial.date}</div>
           <div
             className="text-xs mt-0.5"
             style={{ color: `${testimonial.accentColor}80` }}
@@ -143,7 +143,7 @@ export default function Testimonials() {
   const toggle = (i: number) => setActiveIndex(activeIndex === i ? null : i);
 
   return (
-    <section id="testimonials" className="py-24 px-6 bg-[#1E1714] border-t border-[rgba(201,133,106,0.07)]">
+    <section id="testimonials" className="py-24 px-6 bg-[#180F17] border-t border-[rgba(201,133,106,0.07)]">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <motion.div
@@ -156,10 +156,10 @@ export default function Testimonials() {
           <span className="text-sm text-[#C9856A] font-mono tracking-wider uppercase block mb-4">
             06. Testimonials
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-[#F0E8E3] mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#EDE5F0] mb-4">
             In their own words
           </h2>
-          <p className="text-[#9A8A84] max-w-xl">
+          <p className="text-[#90788E] max-w-xl">
             From managers, peers, and teammates — across Cisco and Delphix.
           </p>
         </motion.div>

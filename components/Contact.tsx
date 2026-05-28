@@ -74,7 +74,7 @@ export default function Contact() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="contact" className="py-24 px-6 bg-[#1E1714] border-t border-[rgba(201,133,106,0.07)]">
+    <section id="contact" className="py-24 px-6 bg-[#180F17] border-t border-[rgba(201,133,106,0.07)]">
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <motion.div
@@ -92,11 +92,11 @@ export default function Contact() {
           </motion.span>
           <motion.h2
             variants={fadeUp}
-            className="text-3xl md:text-4xl font-bold text-[#F0E8E3] mb-4"
+            className="text-3xl md:text-4xl font-bold text-[#EDE5F0] mb-4"
           >
             Let&apos;s connect
           </motion.h2>
-          <motion.p variants={fadeUp} className="text-[#9A8A84] max-w-lg mx-auto leading-relaxed">
+          <motion.p variants={fadeUp} className="text-[#90788E] max-w-lg mx-auto leading-relaxed">
             Whether you&apos;re working on something interesting or just want to say hello — find me here.
           </motion.p>
         </motion.div>
@@ -116,7 +116,7 @@ export default function Contact() {
               rel="noopener noreferrer"
               variants={fadeUp}
               whileHover={{ y: -4 }}
-              className="gradient-border rounded-2xl hover:bg-[#2E2522] px-8 py-7 flex flex-col items-center gap-4 flex-1 cursor-pointer transition-colors duration-300"
+              className="gradient-border rounded-2xl px-8 py-7 flex flex-col items-center gap-4 flex-1 cursor-pointer transition-all duration-300 hover:brightness-110"
               style={{ maxWidth: "240px", margin: "0 auto" }}
             >
               <div
@@ -126,7 +126,7 @@ export default function Contact() {
                 <link.Icon size={22} />
               </div>
               <div className="text-center">
-                <div className="text-xs text-[#7A6A64] mb-1 font-mono uppercase tracking-wider">{link.label}</div>
+                <div className="text-xs text-[#90788E] mb-1 font-mono uppercase tracking-wider">{link.label}</div>
                 <div className="text-sm transition-colors duration-200" style={{ color: link.color }}>
                   {link.value}
                 </div>

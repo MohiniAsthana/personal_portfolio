@@ -77,7 +77,7 @@ function PaperCard({ paper, index }: { paper: Paper; index: number }) {
       initial={{ opacity: 0, y: 30 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.6, ease: "easeOut", delay: index * 0.1 }}
-      className="gradient-border rounded-2xl p-6 hover:bg-[#2E2522] transition-colors duration-300 group"
+      className="gradient-border rounded-2xl p-6 transition-all duration-300 group hover:brightness-110"
     >
       <div className="flex items-start justify-between gap-4 mb-4">
         <div className="flex-1">
@@ -91,33 +91,33 @@ function PaperCard({ paper, index }: { paper: Paper; index: number }) {
             >
               {badgeLabel}
             </span>
-            <span className="text-xs text-[#7A6A64] font-mono">{paper.year}</span>
+            <span className="text-xs text-[#90788E] font-mono">{paper.year}</span>
           </div>
           {paper.link ? (
             <a
               href={paper.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-base font-semibold text-[#F0E8E3] mb-1 leading-snug group-hover:text-[#C9856A] transition-colors duration-200 hover:underline underline-offset-2 block"
+              className="text-base font-semibold text-[#EDE5F0] mb-1 leading-snug group-hover:text-[#C9856A] transition-colors duration-200 hover:underline underline-offset-2 block"
             >
               {paper.title}
             </a>
           ) : (
-            <h3 className="text-base font-semibold text-[#F0E8E3] mb-1 leading-snug group-hover:text-[#C9856A] transition-colors duration-200">
+            <h3 className="text-base font-semibold text-[#EDE5F0] mb-1 leading-snug group-hover:text-[#C9856A] transition-colors duration-200">
               {paper.title}
             </h3>
           )}
-          <div className="text-xs text-[#9A8A84] mb-4">{paper.venue}</div>
+          <div className="text-xs text-[#90788E] mb-4">{paper.venue}</div>
         </div>
       </div>
 
-      <p className="text-sm text-[#9A8A84] leading-relaxed mb-4">{paper.description}</p>
+      <p className="text-sm text-[#90788E] leading-relaxed mb-4">{paper.description}</p>
 
       <div className="flex flex-wrap gap-2">
         {paper.tags.map((tag) => (
           <span
             key={tag}
-            className="text-xs px-2.5 py-1 rounded-full bg-[#1A1614] border border-[rgba(201,133,106,0.12)] text-[#7A6A64]"
+            className="text-xs px-2.5 py-1 rounded-full bg-[rgba(201,133,106,0.1)] border border-[rgba(201,133,106,0.2)] text-[#C9856A]"
           >
             {tag}
           </span>
@@ -132,7 +132,7 @@ export default function Research() {
   const headerInView = useInView(headerRef, { once: true, margin: "-80px" });
 
   return (
-    <section id="research" className="py-24 px-6 bg-[#1E1714] border-t border-[rgba(201,133,106,0.07)]">
+    <section id="research" className="py-24 px-6 bg-[#180F17] border-t border-[rgba(201,133,106,0.07)]">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <motion.div
@@ -145,10 +145,10 @@ export default function Research() {
           <span className="text-sm text-[#C9856A] font-mono tracking-wider uppercase block mb-4">
             04. Research
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-[#F0E8E3] mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#EDE5F0] mb-4">
             Studying the translation
           </h2>
-          <p className="text-[#9A8A84] max-w-xl leading-relaxed">
+          <p className="text-[#90788E] max-w-xl leading-relaxed">
             My research centres on the gap between what AI systems can do and what humans actually
             do with them — where trust forms, where it breaks, and what that means for the people
             designing and leading these systems.

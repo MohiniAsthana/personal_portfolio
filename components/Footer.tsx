@@ -10,7 +10,7 @@ export default function Footer() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3 }}
-          className="text-sm text-[#7A6A64]"
+          className="text-sm text-[#90788E]"
         >
           © {new Date().getFullYear()} Mohini Asthana. Built with intention.
         </motion.div>
@@ -18,7 +18,7 @@ export default function Footer() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.4 }}
-          className="text-xs text-[#7A6A64] font-mono"
+          className="text-xs text-[#90788E] font-mono"
         >
           Next.js · Tailwind · Framer Motion
         </motion.div>

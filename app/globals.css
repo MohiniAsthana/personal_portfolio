@@ -1,17 +1,17 @@
 @import "tailwindcss";
 
 :root {
-  --bg-primary: #1A1614;
-  --bg-secondary: #1A1614;
-  --bg-card: #2A2320;
-  --bg-card-hover: #2E2522;
+  --bg-primary: #150D14;
+  --bg-secondary: #150D14;
+  --bg-card: #20121E;
+  --bg-card-hover: #2A1728;
   --border: rgba(201,133,106,0.12);
   --accent: #C9856A;
   --accent-light: #D4926F;
   --accent-dark: #B8705A;
-  --text-primary: #F0E8E3;
-  --text-secondary: #9A8A84;
-  --text-muted: #7A6A64;
+  --text-primary: #EDE5F0;
+  --text-secondary: #90788E;
+  --text-muted: #90788E;
 }
 
 @theme inline {
@@ -26,7 +26,7 @@ html {
 }
 
 body {
-  background-color: var(--bg-primary);
+  background-color: #150D14;
   background-image: radial-gradient(ellipse 80% 50% at 50% -10%, rgba(201,133,106,0.13) 0%, transparent 70%);
   color: var(--text-primary);
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
@@ -38,7 +38,7 @@ body {
   width: 5px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--bg-primary);
+  background: #150D14;
 }
 ::-webkit-scrollbar-thumb {
   background: linear-gradient(to bottom, #C9856A, #B8705A);
@@ -59,7 +59,7 @@ body {
   position: relative;
   overflow: hidden;
   border: 0.5px solid rgba(201,133,106,0.12);
-  background: linear-gradient(145deg, #2E2522 0%, #231C1A 100%);
+  background: linear-gradient(145deg, #2A1728 0%, #1C0F1A 100%);
 }
 
 .gradient-border::before {
