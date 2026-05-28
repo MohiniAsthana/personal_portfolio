@@ -156,7 +156,7 @@ function CompanyCard({ entry, index }: { entry: CompanyEntry; index: number }) {
     >
       {/* Left — period + dot */}
       <div className="lg:text-right pt-1 hidden lg:block pr-6">
-        <div className="text-xs text-[#90788E] font-mono leading-relaxed">
+        <div className="text-xs font-mono leading-relaxed" style={{ color: "#D4A96A" }}>
           {entry.overallPeriod.split("—").map((part, i) => (
             <span key={i} className="block">{i === 0 ? part.trim() : `— ${part.trim()}`}</span>
           ))}
@@ -176,7 +176,7 @@ function CompanyCard({ entry, index }: { entry: CompanyEntry; index: number }) {
       </div>
 
       {/* Right — company card */}
-      <div className="gradient-border rounded-2xl transition-all duration-300 overflow-hidden group-hover:brightness-110">
+      <div className="gradient-border card-hover rounded-2xl overflow-hidden">
         {/* Company header */}
         <div className="px-6 pt-6 pb-4 border-b border-[rgba(201,133,106,0.12)]">
           <div className="flex items-start justify-between gap-4 flex-wrap">
@@ -186,7 +186,7 @@ function CompanyCard({ entry, index }: { entry: CompanyEntry; index: number }) {
             >
               {entry.company}
             </h3>
-            <span className="text-xs font-mono text-[#90788E] lg:hidden">{entry.overallPeriod}</span>
+            <span className="text-xs font-mono lg:hidden" style={{ color: "#D4A96A" }}>{entry.overallPeriod}</span>
           </div>
           <p className="text-sm text-[#90788E] leading-relaxed mt-2">{entry.description}</p>
         </div>
@@ -231,7 +231,7 @@ function CompanyCard({ entry, index }: { entry: CompanyEntry; index: number }) {
                 <div className="flex-1 pb-2">
                   <div className="flex items-center justify-between gap-3 flex-wrap mb-2">
                     <span className="text-sm font-semibold text-[#EDE5F0]">{role.title}</span>
-                    <span className="text-xs font-mono text-[#90788E]">{role.period}</span>
+                    <span className="text-xs font-mono" style={{ color: "#D4A96A" }}>{role.period}</span>
                   </div>
                   {role.highlightGroups ? (
                     <div className="space-y-3">
@@ -297,7 +297,7 @@ export default function Experience() {
   const headerInView = useInView(headerRef, { once: true, margin: "-80px" });
 
   return (
-    <section id="experience" className="py-24 px-6 bg-[#180F17] border-t border-[rgba(201,133,106,0.07)]">
+    <section id="experience" className="py-24 px-6 bg-[#180F17] section-glow-even border-t border-[rgba(201,133,106,0.07)]">
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <motion.div
@@ -307,7 +307,7 @@ export default function Experience() {
           animate={headerInView ? "show" : "hidden"}
           className="mb-16"
         >
-          <span className="text-sm text-[#C9856A] font-mono tracking-wider uppercase block mb-4">
+          <span className="text-sm font-mono tracking-wider uppercase block mb-4" style={{ color: "#D4A96A" }}>
             02. Experience
           </span>
           <h2 className="text-3xl md:text-4xl font-bold text-[#EDE5F0]">

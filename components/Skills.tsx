@@ -89,7 +89,7 @@ export default function Skills() {
           animate={headerInView ? "show" : "hidden"}
           className="mb-16"
         >
-          <span className="text-sm text-[#C9856A] font-mono tracking-wider uppercase block mb-4">
+          <span className="text-sm font-mono tracking-wider uppercase block mb-4" style={{ color: "#D4A96A" }}>
             03. Skills
           </span>
           <h2 className="text-3xl md:text-4xl font-bold text-[#EDE5F0] mb-4">
@@ -140,12 +140,12 @@ export default function Skills() {
                   <motion.button
                     key={skill.name}
                     onClick={() => setActiveSkill(activeSkill?.name === skill.name ? null : skill)}
-                    whileHover={{ scale: 1.02, y: -2 }}
+                    whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    className={`text-left p-4 rounded-xl border transition-all duration-200 cursor-pointer ${
+                    className={`card-hover text-left p-4 rounded-xl border cursor-pointer ${
                       activeSkill?.name === skill.name
                         ? "border-transparent"
-                        : "border-[rgba(201,133,106,0.12)] bg-gradient-to-br from-[#2A1728] to-[#1C0F1A] hover:border-[rgba(201,133,106,0.25)]"
+                        : "border-[rgba(201,133,106,0.12)] bg-gradient-to-br from-[#2A1728] to-[#1C0F1A]"
                     }`}
                     style={
                       activeSkill?.name === skill.name

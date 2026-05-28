@@ -74,7 +74,7 @@ export default function Contact() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="contact" className="py-24 px-6 bg-[#180F17] border-t border-[rgba(201,133,106,0.07)]">
+    <section id="contact" className="py-24 px-6 bg-[#180F17] section-glow-even border-t border-[rgba(201,133,106,0.07)]">
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <motion.div
@@ -86,7 +86,8 @@ export default function Contact() {
         >
           <motion.span
             variants={fadeUp}
-            className="text-sm text-[#C9856A] font-mono tracking-wider uppercase block mb-4"
+            className="text-sm font-mono tracking-wider uppercase block mb-4"
+            style={{ color: "#D4A96A" }}
           >
             07. Contact
           </motion.span>
@@ -116,7 +117,7 @@ export default function Contact() {
               rel="noopener noreferrer"
               variants={fadeUp}
               whileHover={{ y: -4 }}
-              className="gradient-border rounded-2xl px-8 py-7 flex flex-col items-center gap-4 flex-1 cursor-pointer transition-all duration-300 hover:brightness-110"
+              className="gradient-border card-hover rounded-2xl px-8 py-7 flex flex-col items-center gap-4 flex-1 cursor-pointer"
               style={{ maxWidth: "240px", margin: "0 auto" }}
             >
               <div

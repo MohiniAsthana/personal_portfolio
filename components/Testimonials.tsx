@@ -72,7 +72,7 @@ function TestimonialCard({
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.6, ease: "easeOut", delay: index * 0.1 }}
       onClick={onClick}
-      className="gradient-border rounded-2xl p-6 cursor-pointer transition-all duration-300 hover:brightness-110"
+      className="gradient-border card-hover rounded-2xl p-6 cursor-pointer"
       style={isActive ? { outline: `1px solid ${testimonial.accentColor}50` } : {}}
     >
       {/* Quote mark */}
@@ -143,7 +143,7 @@ export default function Testimonials() {
   const toggle = (i: number) => setActiveIndex(activeIndex === i ? null : i);
 
   return (
-    <section id="testimonials" className="py-24 px-6 bg-[#180F17] border-t border-[rgba(201,133,106,0.07)]">
+    <section id="testimonials" className="py-24 px-6 bg-[#180F17] section-glow-even border-t border-[rgba(201,133,106,0.07)]">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <motion.div
@@ -153,7 +153,7 @@ export default function Testimonials() {
           animate={headerInView ? "show" : "hidden"}
           className="mb-16"
         >
-          <span className="text-sm text-[#C9856A] font-mono tracking-wider uppercase block mb-4">
+          <span className="text-sm font-mono tracking-wider uppercase block mb-4" style={{ color: "#D4A96A" }}>
             06. Testimonials
           </span>
           <h2 className="text-3xl md:text-4xl font-bold text-[#EDE5F0] mb-4">

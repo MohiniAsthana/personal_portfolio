@@ -33,7 +33,7 @@ export default function About() {
         >
           {/* Section label */}
           <motion.div variants={fadeUp} className="mb-4">
-            <span className="text-sm text-[#C9856A] font-mono tracking-wider uppercase">
+            <span className="text-sm font-mono tracking-wider uppercase" style={{ color: "#D4A96A" }}>
               01. About
             </span>
           </motion.div>

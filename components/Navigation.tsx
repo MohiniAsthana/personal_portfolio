@@ -16,11 +16,29 @@ const navLinks = [
 export default function Navigation() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState<string>("");
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const ids = navLinks.map((l) => l.href.slice(1));
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) setActiveSection(e.target.id);
+        });
+      },
+      { rootMargin: "-40% 0px -55% 0px" }
+    );
+    ids.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+    return () => observer.disconnect();
   }, []);
 
   const handleNavClick = (href: string) => {
@@ -57,7 +75,8 @@ export default function Navigation() {
             <li key={link.href}>
               <button
                 onClick={() => handleNavClick(link.href)}
-                className="text-sm text-[#90788E] hover:text-[#C9856A] transition-colors duration-200 cursor-pointer"
+                className="nav-link text-sm cursor-pointer"
+                data-active={activeSection === link.href.slice(1) ? "true" : undefined}
               >
                 {link.label}
               </button>
@@ -112,7 +131,8 @@ export default function Navigation() {
                 <li key={link.href}>
                   <button
                     onClick={() => handleNavClick(link.href)}
-                    className="text-[#90788E] hover:text-[#C9856A] transition-colors text-sm cursor-pointer"
+                    className="nav-link text-sm cursor-pointer"
+                    data-active={activeSection === link.href.slice(1) ? "true" : undefined}
                   >
                     {link.label}
                   </button>
