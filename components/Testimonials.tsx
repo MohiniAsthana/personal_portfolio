@@ -143,7 +143,7 @@ export default function Testimonials() {
   const toggle = (i: number) => setActiveIndex(activeIndex === i ? null : i);
 
   return (
-    <section id="testimonials" className="py-24 px-6">
+    <section id="testimonials" className="py-24 px-6 bg-[#1E1714] border-t border-[rgba(201,133,106,0.07)]">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <motion.div

@@ -70,7 +70,7 @@ export default function Navigation() {
           onClick={() => handleNavClick("#contact")}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.97 }}
-          className="hidden md:block text-sm px-4 py-2 rounded-full border border-[#C9856A] text-[#C9856A] hover:bg-[#C9856A]/10 transition-colors duration-200 cursor-pointer"
+          className="hidden md:block text-sm px-4 py-2 rounded-full border border-[rgba(201,133,106,0.5)] text-[#C9856A] hover:bg-[rgba(201,133,106,0.1)] transition-colors duration-200 cursor-pointer"
         >
           Get in touch
         </motion.button>

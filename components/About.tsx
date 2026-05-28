@@ -23,7 +23,7 @@ export default function About() {
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="about" className="py-24 px-6">
+    <section id="about" className="py-24 px-6 bg-[#1A1614] border-t border-[rgba(201,133,106,0.07)]">
       <div className="max-w-6xl mx-auto">
         <motion.div
           ref={ref}

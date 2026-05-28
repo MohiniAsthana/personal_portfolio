@@ -74,7 +74,7 @@ export default function Contact() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="contact" className="py-24 px-6 bg-[#1A1614]">
+    <section id="contact" className="py-24 px-6 bg-[#1E1714] border-t border-[rgba(201,133,106,0.07)]">
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <motion.div

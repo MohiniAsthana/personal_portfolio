@@ -116,7 +116,7 @@ export default function Awards() {
   const headerInView = useInView(headerRef, { once: true, margin: "-80px" });
 
   return (
-    <section id="awards" className="py-24 px-6">
+    <section id="awards" className="py-24 px-6 bg-[#1A1614] border-t border-[rgba(201,133,106,0.07)]">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <motion.div
