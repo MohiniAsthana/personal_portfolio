@@ -14,9 +14,18 @@ interface Award {
 
 const awards: Award[] = [
   {
+    title: "Top 100 Most Inspiring MBA Leaders — MBA World Summit 2026",
+    org: "MBA World Summit · IPAI, Heilbronn, Germany",
+    year: "2026",
+    description:
+      "Selected as one of 100 most inspiring MBA leaders globally for the 10th edition of the MBA World Summit at IPAI, Europe's largest AI innovation hub. Invited to lead a Summit Laboratory Session: \"The Unseen Truth About Beautiful Lies — How Agentic AI can make truth harder to fake than fiction.\"",
+    icon: "◉",
+    color: "#e879f9",
+  },
+  {
     title: "1st Place — Mazda Brand Strategy Challenge",
     org: "Nanyang Business School, NTU",
-    year: "2024",
+    year: "2025",
     description:
       "Won the competitive Mazda Brand Strategy Challenge among MBA cohorts, presenting a go-to-market and product strategy under real business constraints and executive evaluation.",
     icon: "◆",

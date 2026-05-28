@@ -1,7 +1,8 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import { motion, useInView, type Variants } from "framer-motion";
+import { Mail } from "lucide-react";
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 30 },
@@ -13,48 +14,59 @@ const stagger: Variants = {
   show: { transition: { staggerChildren: 0.12 } },
 };
 
-type FormState = "idle" | "sending" | "success" | "error";
+function LinkedInIcon({ size = 22 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
+      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+    </svg>
+  );
+}
+
+function GitHubIcon({ size = 22 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+    </svg>
+  );
+}
+
+const links = [
+  {
+    label: "LinkedIn",
+    value: "linkedin.com/in/mohiniasthana",
+    href: "https://www.linkedin.com/in/mohiniasthana",
+    color: "#3b82f6",
+    Icon: LinkedInIcon,
+  },
+  {
+    label: "GitHub",
+    value: "github.com/MohiniAsthana",
+    href: "https://github.com/MohiniAsthana",
+    color: "#94a3b8",
+    Icon: GitHubIcon,
+  },
+  {
+    label: "Email",
+    value: "mohini.asthana@gmail.com",
+    href: "mailto:mohini.asthana@gmail.com",
+    color: "#14b8a6",
+    Icon: ({ size }: { size?: number }) => <Mail size={size} strokeWidth={1.5} />,
+  },
+];
 
 export default function Contact() {
-  const headerRef = useRef(null);
-  const headerInView = useInView(headerRef, { once: true, margin: "-80px" });
-
-  const [form, setForm] = useState({ name: "", email: "", message: "" });
-  const [formState, setFormState] = useState<FormState>("idle");
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setFormState("sending");
-    try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
-      });
-      if (res.ok) {
-        setFormState("success");
-        setForm({ name: "", email: "", message: "" });
-      } else {
-        setFormState("error");
-      }
-    } catch {
-      setFormState("error");
-    }
-  };
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
     <section id="contact" className="py-24 px-6 bg-[#0f1629]">
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <motion.div
-          ref={headerRef}
+          ref={ref}
           variants={stagger}
           initial="hidden"
-          animate={headerInView ? "show" : "hidden"}
+          animate={inView ? "show" : "hidden"}
           className="text-center mb-16"
         >
           <motion.span
@@ -67,142 +79,46 @@ export default function Contact() {
             variants={fadeUp}
             className="text-3xl md:text-4xl font-bold text-[#f1f5f9] mb-4"
           >
-            Let&apos;s build something together
+            Let&apos;s connect
           </motion.h2>
           <motion.p variants={fadeUp} className="text-[#94a3b8] max-w-lg mx-auto leading-relaxed">
-            Whether you&apos;re working on a hard problem at the intersection of technology and
-            human systems, or you just want to connect — I&apos;d love to hear from you.
+            Whether you&apos;re working on something interesting or just want to say hello — find me here.
           </motion.p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-12 items-start">
-          {/* Left — links */}
-          <motion.div
-            variants={stagger}
-            initial="hidden"
-            animate={headerInView ? "show" : "hidden"}
-            className="space-y-6"
-          >
-            {[
-              {
-                label: "LinkedIn",
-                value: "linkedin.com/in/mohiniasthana",
-                href: "https://www.linkedin.com/in/mohiniasthana",
-                color: "#3b82f6",
-              },
-              {
-                label: "GitHub",
-                value: "github.com/MohiniAsthana",
-                href: "https://github.com/MohiniAsthana",
-                color: "#94a3b8",
-              },
-              {
-                label: "Email",
-                value: "mohini.asthana@gmail.com",
-                href: "mailto:mohini.asthana@gmail.com",
-                color: "#14b8a6",
-              },
-            ].map((link) => (
-              <motion.a
-                key={link.label}
-                href={link.href}
-                target={link.label !== "Email" ? "_blank" : undefined}
-                rel="noopener noreferrer"
-                variants={fadeUp}
-                whileHover={{ x: 6 }}
-                className="flex items-center gap-4 group cursor-pointer"
+        {/* Links — horizontal on desktop, stacked on mobile */}
+        <motion.div
+          variants={stagger}
+          initial="hidden"
+          animate={inView ? "show" : "hidden"}
+          className="flex flex-col md:flex-row gap-6 justify-center"
+        >
+          {links.map((link) => (
+            <motion.a
+              key={link.label}
+              href={link.href}
+              target={link.label !== "Email" ? "_blank" : undefined}
+              rel="noopener noreferrer"
+              variants={fadeUp}
+              whileHover={{ y: -4 }}
+              className="gradient-border rounded-2xl bg-[#111827] hover:bg-[#1a2235] px-8 py-7 flex flex-col items-center gap-4 flex-1 cursor-pointer transition-colors duration-300"
+              style={{ maxWidth: "280px", margin: "0 auto" }}
+            >
+              <div
+                className="w-12 h-12 rounded-xl flex items-center justify-center shrink-0"
+                style={{ background: `${link.color}15`, color: link.color }}
               >
-                <div
-                  className="w-10 h-10 rounded-xl flex items-center justify-center text-xs font-mono font-bold shrink-0"
-                  style={{ background: `${link.color}15`, color: link.color }}
-                >
-                  {link.label.slice(0, 2).toUpperCase()}
+                <link.Icon size={22} />
+              </div>
+              <div className="text-center">
+                <div className="text-xs text-[#475569] mb-1 font-mono uppercase tracking-wider">{link.label}</div>
+                <div className="text-sm transition-colors duration-200" style={{ color: link.color }}>
+                  {link.value}
                 </div>
-                <div>
-                  <div className="text-xs text-[#475569] mb-0.5">{link.label}</div>
-                  <div
-                    className="text-sm transition-colors duration-200 group-hover:text-[#f1f5f9]"
-                    style={{ color: link.color }}
-                  >
-                    {link.value}
-                  </div>
-                </div>
-              </motion.a>
-            ))}
-          </motion.div>
-
-          {/* Right — form */}
-          <motion.form
-            onSubmit={handleSubmit}
-            variants={stagger}
-            initial="hidden"
-            animate={headerInView ? "show" : "hidden"}
-            className="space-y-4"
-          >
-            {[
-              { name: "name", label: "Your name", type: "text", placeholder: "Jane Smith" },
-              { name: "email", label: "Email address", type: "email", placeholder: "jane@example.com" },
-            ].map((field) => (
-              <motion.div key={field.name} variants={fadeUp}>
-                <label className="block text-xs text-[#94a3b8] mb-1.5">{field.label}</label>
-                <input
-                  type={field.type}
-                  name={field.name}
-                  value={form[field.name as keyof typeof form]}
-                  onChange={handleChange}
-                  placeholder={field.placeholder}
-                  required
-                  className="w-full px-4 py-3 rounded-xl bg-[#111827] border border-[#1e2d45] text-[#f1f5f9] text-sm placeholder:text-[#475569] focus:outline-none focus:border-[#14b8a6] transition-colors duration-200"
-                />
-              </motion.div>
-            ))}
-
-            <motion.div variants={fadeUp}>
-              <label className="block text-xs text-[#94a3b8] mb-1.5">Message</label>
-              <textarea
-                name="message"
-                value={form.message}
-                onChange={handleChange}
-                placeholder="What are you working on?"
-                required
-                rows={5}
-                className="w-full px-4 py-3 rounded-xl bg-[#111827] border border-[#1e2d45] text-[#f1f5f9] text-sm placeholder:text-[#475569] focus:outline-none focus:border-[#14b8a6] transition-colors duration-200 resize-none"
-              />
-            </motion.div>
-
-            <motion.div variants={fadeUp}>
-              <motion.button
-                type="submit"
-                disabled={formState === "sending"}
-                whileHover={{ scale: 1.02, boxShadow: "0 0 25px rgba(20,184,166,0.25)" }}
-                whileTap={{ scale: 0.98 }}
-                className="w-full py-3.5 rounded-xl text-sm font-semibold text-[#0a0e1a] disabled:opacity-60 disabled:cursor-not-allowed cursor-pointer transition-all duration-200"
-                style={{ background: "linear-gradient(135deg, #14b8a6, #8b5cf6)" }}
-              >
-                {formState === "sending" ? "Sending..." : "Send message"}
-              </motion.button>
-
-              {formState === "success" && (
-                <motion.p
-                  initial={{ opacity: 0, y: 6 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="text-sm text-[#14b8a6] text-center mt-3"
-                >
-                  Message sent — I&apos;ll be in touch soon.
-                </motion.p>
-              )}
-              {formState === "error" && (
-                <motion.p
-                  initial={{ opacity: 0, y: 6 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="text-sm text-red-400 text-center mt-3"
-                >
-                  Something went wrong. Try emailing directly.
-                </motion.p>
-              )}
-            </motion.div>
-          </motion.form>
-        </div>
+              </div>
+            </motion.a>
+          ))}
+        </motion.div>
       </div>
     </section>
   );

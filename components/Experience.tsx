@@ -27,33 +27,34 @@ const companies: CompanyEntry[] = [
     location: "Singapore",
     overallPeriod: "July 2025 — June 2026",
     description:
-      "Pursuing an MBA with a focus on strategy and technology leadership. Concurrently working as a Research Associate conducting empirical studies on human-AI systems, and leading product strategy for an Agentic AI commerce solution as part of an IBM consulting engagement.",
+      "Pursuing an MBA at Singapore's #1-ranked business school (Financial Times). Concurrently serving as a paid Research Associate in the Division of Leadership, Management & Organisation, contributing to active empirical studies on human-AI systems.",
     roles: [
       {
         title: "Research Associate",
         period: "Jan 2026 — Present",
         highlights: [
-          "Empirical research on human-AI decision-making and trust dynamics",
-          "IBM consulting engagement: Agentic AI commerce strategy",
+          "Statistical analysis and data processing for empirical studies on AI-augmented decision-making and human-AI trust dynamics",
+          "Contributing to manuscript preparation for journal submissions on prompt engineering efficacy and human-AI collaboration",
         ],
       },
       {
         title: "MBA Candidate",
         period: "July 2025 — June 2026",
         highlights: [
-          "Specialisation in strategy and technology leadership",
-          "1st place — Mazda Brand Strategy Challenge",
+          "SPAN Capstone | IBM Consulting — Client Lead & Solution Architect on Project PRISM: conceived a 0-to-1 Agentic AI Digital Twin for commerce, led agent architecture, business case, and APAC GTM strategy for a 5-member team",
+          "Selected as one of 100 Most Inspiring MBA Leaders globally; leading a Summit Laboratory Session at MBA World Summit 2026, IPAI Heilbronn — Europe's largest AI innovation hub",
+          "Won Mazda Singapore Brand Strategy Challenge — repositioned the brand for an emerging life-stage segment with a \"Mazda grows with you\" narrative grounded in changing market dynamics",
         ],
       },
     ],
-    tags: ["Human-AI Systems", "Product Strategy", "Research", "MBA"],
+    tags: ["Human-AI Systems", "Agentic AI", "Product Strategy", "Research", "MBA"],
     accentColor: "#8b5cf6",
     roleDividerLabel: "+ added role",
   },
   {
     company: "Delphix",
     location: "Remote / Bangalore",
-    overallPeriod: "Aug 2019 — June 2025",
+    overallPeriod: "Aug 2021 — June 2025",
     description:
       "The work kept expanding beyond the title. Drove product strategy for test data management solutions for Fortune 500 enterprise clients, spanning data virtualisation and compliance. In a deliberately flat organisation, the boundaries between engineering and product were porous by design — and I found myself drawn toward that intersection, again and again.",
     roles: [
@@ -61,19 +62,19 @@ const companies: CompanyEntry[] = [
         title: "Senior Software Development Engineer 2",
         period: "May 2023 — June 2025",
         highlights: [
-          "Led Agile transformation adopted firm-wide at VP level",
-          "Drove 100% NRR across enterprise client portfolio",
-          "Apex Ascent Award recipient (top performer recognition)",
-          "Clients: LinkedIn, Truist, Choice Hotels",
+          "Rearchitected fragmented connector infrastructure into a unified modular platform — cut customer onboarding time by 20% and unlocked 8% revenue uplift",
+          "Led Proof of Value pilots with enterprise pre-sales; translated client requirements into product roadmap decisions that drove new acquisitions",
+          "Selected for CEO-initiated cross-functional team to redesign company-wide documentation architecture — reduced documentation-driven customer escalations",
+          "Drove Git workflow migration across 4 engineering teams — freed 3 days of branch management overhead per release cycle",
         ],
       },
       {
         title: "Senior Software Development Engineer 1",
         period: "Aug 2021 — Apr 2023",
         highlights: [
-          "Shipped data virtualisation and compliance features for enterprise clients",
-          "Translated complex TDM architecture into tangible business value",
-          "Established cross-functional working patterns across engineering and product",
+          "Resolved TDM and compliance friction for clients across financial services, logistics, and healthcare — ~75% reduction in customer escalations",
+          "Built the case for Agile adoption from scratch and secured VP sponsorship to scale Scrum across all 4 engineering teams",
+          "Sustained 100% Net Revenue Retention across the full enterprise client base",
         ],
       },
     ],
@@ -91,17 +92,17 @@ const companies: CompanyEntry[] = [
         title: "Software Development Engineer 2",
         period: "Aug 2019 — Aug 2021",
         highlights: [
-          "L3 escalation owner for critical infrastructure issues",
-          "Developed predictive remediation tools",
-          "Multiple 'You Amaze' and 'You Inspire' peer awards",
+          "Led technical architecture for microservices migration of a legacy alert monitoring platform; developed the alert ingestion service end to end — scaled capacity to 200K+ devices",
+          "Built real-time alert ingestion that cut Mean Time to Detect from 5 minutes to seconds — 90% improvement in SLA performance",
+          "Integrated monitoring with ServiceNow and PagerDuty; reduced Mean Time to Resolve from 3 days to 1 hour",
         ],
       },
       {
         title: "Software Development Engineer 1",
         period: "July 2018 — July 2019",
         highlights: [
-          "Built infrastructure alert monitoring platform from scratch",
-          "Contributed to alert noise reduction across global operations",
+          "Engineered an alert categorisation engine that cut noise by 85% (14M → 2M alerts) — let support teams focus on what actually mattered",
+          "Built predictive tooling that automatically resolved recurring issues before alerts fired, shifting operations from reactive to proactive",
         ],
       },
       {
@@ -109,8 +110,8 @@ const companies: CompanyEntry[] = [
         period: "Jan 2018 — June 2018",
         dividerLabel: "→ campus hire",
         highlights: [
-          "First engineering role — built familiarity with large-scale infrastructure systems",
-          "Contributed to internal tooling and monitoring features",
+          "Built the MVP and redesigned the UI for the alert monitoring dashboard",
+          "Wrote 3 alert data parsers; onboarded 12,000 compute resources to the monitoring platform",
         ],
       },
     ],

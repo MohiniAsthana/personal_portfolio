@@ -15,7 +15,7 @@ const stagger: Variants = {
 
 const highlights = [
   { value: "7+", label: "Years across engineering & product" },
-  { value: "100%", label: "Net revenue retention at Delphix" },
+  { value: "Top 100", label: "Most Inspiring MBA Leaders · MBA World Summit 2026, Heilbronn" },
 ];
 
 export default function About() {
@@ -93,7 +93,7 @@ export default function About() {
               {/* Photo placeholder */}
               <motion.div
                 variants={fadeUp}
-                className="relative w-full max-w-sm mx-auto lg:mx-0"
+                className="relative w-full max-w-sm mx-auto"
               >
                 <div className="w-full aspect-[3/4] rounded-2xl overflow-hidden gradient-border">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
