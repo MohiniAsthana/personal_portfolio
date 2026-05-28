@@ -22,7 +22,7 @@ const testimonials: Testimonial[] = [
     quote:
       "Words that describe Mohini are 'Curious, Sharp, Courageous and a Go Getter.' I have managed Mohini for many years and I must say that the energy she gets into the team is truly valuable. She is someone who can understand complex technologies and deliver products very quickly. She has tremendous amount of clarity in her thoughts that has several times helped in making right design decisions, come up with innovative solutions and level up the thinking of the team. Undoubtedly an engineer with tremendous potential and a bright future ahead.",
     initials: "TK",
-    accentColor: "#8b5cf6",
+    accentColor: "#C9856A",
   },
   {
     name: "Hariharan Radhakrishnan",
@@ -32,7 +32,7 @@ const testimonials: Testimonial[] = [
     quote:
       "I've had the privilege of working with Mohini Asthana and can confidently say she's one of the most dependable and technically strong professionals I've worked with. She's deeply customer-focused, often going the extra mile to help resolve issues. Her technical depth is outstanding — she asks the right questions and challenges design choices in a way that helps us build better software. Whether it's leading a team, managing a product, or solving a complex problem, Mohini handles it all with calm, clarity, and care. She'd be a tremendous asset to any company.",
     initials: "HR",
-    accentColor: "#14b8a6",
+    accentColor: "#C9856A",
   },
   {
     name: "Deepa Pawar",
@@ -42,7 +42,7 @@ const testimonials: Testimonial[] = [
     quote:
       "I had the pleasure of working with Mohini for around three years. Mohini consistently demonstrated exceptional dedication, quickly mastering complex tasks and automating manual processes to improve efficiency. As a mentor, she guided many new graduates, helping them transition smoothly into their roles. Additionally, as a member of Cisco CDAN, Mohini organised several events promoting disability awareness and inclusivity, showcasing her commitment to a positive workplace culture. She is a hardworking and innovative individual who brings a positive attitude to every project.",
     initials: "DP",
-    accentColor: "#3b82f6",
+    accentColor: "#C9856A",
   },
 ];
 
@@ -72,7 +72,7 @@ function TestimonialCard({
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.6, ease: "easeOut", delay: index * 0.1 }}
       onClick={onClick}
-      className="gradient-border rounded-2xl p-6 bg-[#111827] cursor-pointer transition-all duration-300 hover:bg-[#1a2235]"
+      className="gradient-border rounded-2xl p-6 bg-[#2A2320] cursor-pointer transition-all duration-300 hover:bg-[#2E2522]"
       style={isActive ? { outline: `1px solid ${testimonial.accentColor}50` } : {}}
     >
       {/* Quote mark */}
@@ -91,7 +91,7 @@ function TestimonialCard({
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.2 }}
-          className="text-sm text-[#94a3b8] leading-relaxed mb-5"
+          className="text-sm text-[#9A8A84] leading-relaxed mb-5"
         >
           {isActive
             ? testimonial.quote
@@ -107,7 +107,7 @@ function TestimonialCard({
       </button>
 
       {/* Author */}
-      <div className="flex items-center gap-3 pt-4 border-t border-[#1e2d45]">
+      <div className="flex items-center gap-3 pt-4 border-t border-[rgba(201,133,106,0.12)]">
         <div
           className="w-9 h-9 rounded-full flex items-center justify-center text-xs font-bold shrink-0"
           style={{
@@ -118,11 +118,11 @@ function TestimonialCard({
           {testimonial.initials}
         </div>
         <div className="flex-1 min-w-0">
-          <div className="text-sm font-semibold text-[#f1f5f9] truncate">{testimonial.name}</div>
-          <div className="text-xs text-[#475569] truncate">{testimonial.title}</div>
+          <div className="text-sm font-semibold text-[#F0E8E3] truncate">{testimonial.name}</div>
+          <div className="text-xs text-[#7A6A64] truncate">{testimonial.title}</div>
         </div>
         <div className="text-right shrink-0">
-          <div className="text-xs text-[#475569]">{testimonial.date}</div>
+          <div className="text-xs text-[#7A6A64]">{testimonial.date}</div>
           <div
             className="text-xs mt-0.5"
             style={{ color: `${testimonial.accentColor}80` }}
@@ -153,13 +153,13 @@ export default function Testimonials() {
           animate={headerInView ? "show" : "hidden"}
           className="mb-16"
         >
-          <span className="text-sm text-[#14b8a6] font-mono tracking-wider uppercase block mb-4">
+          <span className="text-sm text-[#C9856A] font-mono tracking-wider uppercase block mb-4">
             06. Testimonials
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-[#f1f5f9] mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#F0E8E3] mb-4">
             In their own words
           </h2>
-          <p className="text-[#94a3b8] max-w-xl">
+          <p className="text-[#9A8A84] max-w-xl">
             From managers, peers, and teammates — across Cisco and Delphix.
           </p>
         </motion.div>

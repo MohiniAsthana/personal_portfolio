@@ -36,7 +36,7 @@ export default function Navigation() {
       transition={{ duration: 0.6, ease: "easeOut" }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-[#0a0e1a]/90 backdrop-blur-md border-b border-[#1e2d45]"
+          ? "bg-[#1A1614]/90 backdrop-blur-md border-b border-[rgba(201,133,106,0.12)]"
           : "bg-transparent"
       }`}
     >
@@ -57,7 +57,7 @@ export default function Navigation() {
             <li key={link.href}>
               <button
                 onClick={() => handleNavClick(link.href)}
-                className="text-sm text-[#94a3b8] hover:text-[#14b8a6] transition-colors duration-200 cursor-pointer"
+                className="text-sm text-[#9A8A84] hover:text-[#C9856A] transition-colors duration-200 cursor-pointer"
               >
                 {link.label}
               </button>
@@ -70,14 +70,14 @@ export default function Navigation() {
           onClick={() => handleNavClick("#contact")}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.97 }}
-          className="hidden md:block text-sm px-4 py-2 rounded-full border border-[#14b8a6] text-[#14b8a6] hover:bg-[#14b8a6]/10 transition-colors duration-200 cursor-pointer"
+          className="hidden md:block text-sm px-4 py-2 rounded-full border border-[#C9856A] text-[#C9856A] hover:bg-[#C9856A]/10 transition-colors duration-200 cursor-pointer"
         >
           Get in touch
         </motion.button>
 
         {/* Mobile hamburger */}
         <button
-          className="md:hidden text-[#94a3b8] cursor-pointer"
+          className="md:hidden text-[#9A8A84] cursor-pointer"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle menu"
         >
@@ -105,14 +105,14 @@ export default function Navigation() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-[#0a0e1a]/95 backdrop-blur-md border-b border-[#1e2d45]"
+            className="md:hidden bg-[#1A1614]/95 backdrop-blur-md border-b border-[rgba(201,133,106,0.12)]"
           >
             <ul className="flex flex-col px-6 py-4 gap-4">
               {navLinks.map((link) => (
                 <li key={link.href}>
                   <button
                     onClick={() => handleNavClick(link.href)}
-                    className="text-[#94a3b8] hover:text-[#14b8a6] transition-colors text-sm cursor-pointer"
+                    className="text-[#9A8A84] hover:text-[#C9856A] transition-colors text-sm cursor-pointer"
                   >
                     {link.label}
                   </button>

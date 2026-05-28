@@ -3,10 +3,16 @@
 import { useRef } from "react";
 import { motion, useInView, type Variants } from "framer-motion";
 
+interface HighlightGroup {
+  label: string;
+  items: string[];
+}
+
 interface RoleEntry {
   title: string;
   period: string;
   highlights: string[];
+  highlightGroups?: HighlightGroup[]; // optional sub-grouped highlights
   dividerLabel?: string; // label shown above this role (transition from the previous)
 }
 
@@ -40,15 +46,26 @@ const companies: CompanyEntry[] = [
       {
         title: "MBA Candidate",
         period: "July 2025 — June 2026",
-        highlights: [
-          "SPAN Capstone | IBM Consulting — Client Lead & Solution Architect on Project PRISM: conceived a 0-to-1 Agentic AI Digital Twin for commerce, led agent architecture, business case, and APAC GTM strategy for a 5-member team",
-          "Selected as one of 100 Most Inspiring MBA Leaders globally; leading a Summit Laboratory Session at MBA World Summit 2026, IPAI Heilbronn — Europe's largest AI innovation hub",
-          "Won Mazda Singapore Brand Strategy Challenge — repositioned the brand for an emerging life-stage segment with a \"Mazda grows with you\" narrative grounded in changing market dynamics",
+        highlights: [],
+        highlightGroups: [
+          {
+            label: "Project PRISM",
+            items: [
+              "SPAN Capstone | IBM Consulting — Client Lead & Solution Architect on Project PRISM: conceived a 0-to-1 Agentic AI Digital Twin for commerce, led agent architecture, business case, and APAC GTM strategy for a 5-member team",
+            ],
+          },
+          {
+            label: "Recognition",
+            items: [
+              "Selected as one of 100 Most Inspiring MBA Leaders globally; leading a Summit Laboratory Session at MBA World Summit 2026, IPAI Heilbronn — Europe's largest AI innovation hub",
+              "Won Mazda Singapore Brand Strategy Challenge — repositioned the brand for an emerging life-stage segment with a \"Mazda grows with you\" narrative grounded in changing market dynamics",
+            ],
+          },
         ],
       },
     ],
     tags: ["Human-AI Systems", "Agentic AI", "Product Strategy", "Research", "MBA"],
-    accentColor: "#8b5cf6",
+    accentColor: "#C9856A",
     roleDividerLabel: "+ added role",
   },
   {
@@ -79,7 +96,7 @@ const companies: CompanyEntry[] = [
       },
     ],
     tags: ["Data Virtualisation", "TDM", "Compliance", "Product Strategy", "Agile", "Enterprise"],
-    accentColor: "#14b8a6",
+    accentColor: "#C9856A",
   },
   {
     company: "Cisco",
@@ -116,7 +133,7 @@ const companies: CompanyEntry[] = [
       },
     ],
     tags: ["Infrastructure", "Python", "Distributed Systems", "Monitoring"],
-    accentColor: "#3b82f6",
+    accentColor: "#C9856A",
   },
 ];
 
@@ -139,18 +156,18 @@ function CompanyCard({ entry, index }: { entry: CompanyEntry; index: number }) {
     >
       {/* Left — period + dot */}
       <div className="lg:text-right pt-1 hidden lg:block pr-6">
-        <div className="text-xs text-[#94a3b8] font-mono leading-relaxed">
+        <div className="text-xs text-[#9A8A84] font-mono leading-relaxed">
           {entry.overallPeriod.split("—").map((part, i) => (
             <span key={i} className="block">{i === 0 ? part.trim() : `— ${part.trim()}`}</span>
           ))}
         </div>
-        <div className="text-xs text-[#475569] mt-1">{entry.location}</div>
+        <div className="text-xs text-[#7A6A64] mt-1">{entry.location}</div>
       </div>
 
       {/* Timeline dot */}
       <div className="hidden lg:flex absolute left-[180px] top-1.5 -translate-x-1/2 flex-col items-center z-10">
         <div
-          className="w-3 h-3 rounded-full border-2 border-[#0a0e1a] transition-all duration-300 group-hover:scale-125"
+          className="w-3 h-3 rounded-full border-2 border-[#1A1614] transition-all duration-300 group-hover:scale-125"
           style={{
             backgroundColor: entry.accentColor,
             boxShadow: `0 0 12px ${entry.accentColor}60`,
@@ -159,9 +176,9 @@ function CompanyCard({ entry, index }: { entry: CompanyEntry; index: number }) {
       </div>
 
       {/* Right — company card */}
-      <div className="gradient-border rounded-2xl bg-[#111827] group-hover:bg-[#1a2235] transition-colors duration-300 overflow-hidden">
+      <div className="gradient-border rounded-2xl bg-[#2A2320] group-hover:bg-[#2E2522] transition-colors duration-300 overflow-hidden">
         {/* Company header */}
-        <div className="px-6 pt-6 pb-4 border-b border-[#1e2d45]">
+        <div className="px-6 pt-6 pb-4 border-b border-[rgba(201,133,106,0.12)]">
           <div className="flex items-start justify-between gap-4 flex-wrap">
             <h3
               className="text-lg font-bold"
@@ -169,9 +186,9 @@ function CompanyCard({ entry, index }: { entry: CompanyEntry; index: number }) {
             >
               {entry.company}
             </h3>
-            <span className="text-xs font-mono text-[#475569] lg:hidden">{entry.overallPeriod}</span>
+            <span className="text-xs font-mono text-[#7A6A64] lg:hidden">{entry.overallPeriod}</span>
           </div>
-          <p className="text-sm text-[#94a3b8] leading-relaxed mt-2">{entry.description}</p>
+          <p className="text-sm text-[#9A8A84] leading-relaxed mt-2">{entry.description}</p>
         </div>
 
         {/* Role timeline inside card */}
@@ -181,7 +198,7 @@ function CompanyCard({ entry, index }: { entry: CompanyEntry; index: number }) {
               {/* Promotion divider */}
               {i > 0 && (
                 <div className="flex items-center gap-3 my-4">
-                  <div className="flex-1 h-px bg-[#1e2d45]" />
+                  <div className="flex-1 h-px bg-[rgba(201,133,106,0.12)]" />
                   <span
                     className="text-xs font-mono px-2.5 py-0.5 rounded-full border"
                     style={{
@@ -192,7 +209,7 @@ function CompanyCard({ entry, index }: { entry: CompanyEntry; index: number }) {
                   >
                     {role.dividerLabel ?? entry.roleDividerLabel ?? "↑ promoted"}
                   </span>
-                  <div className="flex-1 h-px bg-[#1e2d45]" />
+                  <div className="flex-1 h-px bg-[rgba(201,133,106,0.12)]" />
                 </div>
               )}
 
@@ -213,20 +230,41 @@ function CompanyCard({ entry, index }: { entry: CompanyEntry; index: number }) {
 
                 <div className="flex-1 pb-2">
                   <div className="flex items-center justify-between gap-3 flex-wrap mb-2">
-                    <span className="text-sm font-semibold text-[#f1f5f9]">{role.title}</span>
-                    <span className="text-xs font-mono text-[#475569]">{role.period}</span>
+                    <span className="text-sm font-semibold text-[#F0E8E3]">{role.title}</span>
+                    <span className="text-xs font-mono text-[#7A6A64]">{role.period}</span>
                   </div>
-                  <ul className="space-y-1.5">
-                    {role.highlights.map((h) => (
-                      <li key={h} className="flex items-start gap-2 text-xs text-[#94a3b8]">
-                        <span
-                          className="mt-1.5 w-1 h-1 rounded-full shrink-0"
-                          style={{ backgroundColor: entry.accentColor, opacity: 0.6 }}
-                        />
-                        {h}
-                      </li>
-                    ))}
-                  </ul>
+                  {role.highlightGroups ? (
+                    <div className="space-y-3">
+                      {role.highlightGroups.map((group) => (
+                        <div key={group.label}>
+                          <span className="text-xs font-mono text-[#7A6A64] block mb-1">{group.label}</span>
+                          <ul className="space-y-1.5">
+                            {group.items.map((h) => (
+                              <li key={h} className="flex items-start gap-2 text-xs text-[#9A8A84]">
+                                <span
+                                  className="mt-1.5 w-1 h-1 rounded-full shrink-0"
+                                  style={{ backgroundColor: entry.accentColor, opacity: 0.6 }}
+                                />
+                                {h}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    <ul className="space-y-1.5">
+                      {role.highlights.map((h) => (
+                        <li key={h} className="flex items-start gap-2 text-xs text-[#9A8A84]">
+                          <span
+                            className="mt-1.5 w-1 h-1 rounded-full shrink-0"
+                            style={{ backgroundColor: entry.accentColor, opacity: 0.6 }}
+                          />
+                          {h}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
                 </div>
               </div>
             </div>
@@ -258,7 +296,7 @@ export default function Experience() {
   const headerInView = useInView(headerRef, { once: true, margin: "-80px" });
 
   return (
-    <section id="experience" className="py-24 px-6 bg-[#0f1629]">
+    <section id="experience" className="py-24 px-6 bg-[#1A1614]">
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <motion.div
@@ -268,10 +306,10 @@ export default function Experience() {
           animate={headerInView ? "show" : "hidden"}
           className="mb-16"
         >
-          <span className="text-sm text-[#14b8a6] font-mono tracking-wider uppercase block mb-4">
+          <span className="text-sm text-[#C9856A] font-mono tracking-wider uppercase block mb-4">
             02. Experience
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-[#f1f5f9]">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#F0E8E3]">
             Where the work happened
           </h2>
         </motion.div>
@@ -279,7 +317,7 @@ export default function Experience() {
         {/* Timeline */}
         <div className="relative">
           {/* Vertical connecting line */}
-          <div className="hidden lg:block absolute left-[180px] top-2 bottom-2 w-px bg-gradient-to-b from-transparent via-[#1e2d45] to-transparent -translate-x-1/2" />
+          <div className="hidden lg:block absolute left-[180px] top-2 bottom-2 w-px bg-gradient-to-b from-transparent via-[rgba(201,133,106,0.12)] to-transparent -translate-x-1/2" />
 
           <div className="space-y-10">
             {companies.map((entry, i) => (

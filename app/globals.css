@@ -1,16 +1,17 @@
 @import "tailwindcss";
 
 :root {
-  --bg-primary: #0a0e1a;
-  --bg-secondary: #0f1629;
-  --bg-card: #111827;
-  --bg-card-hover: #1a2235;
-  --border: #1e2d45;
-  --accent-teal: #14b8a6;
-  --accent-purple: #8b5cf6;
-  --text-primary: #f1f5f9;
-  --text-secondary: #94a3b8;
-  --text-muted: #475569;
+  --bg-primary: #1A1614;
+  --bg-secondary: #1A1614;
+  --bg-card: #2A2320;
+  --bg-card-hover: #2E2522;
+  --border: rgba(201,133,106,0.12);
+  --accent: #C9856A;
+  --accent-light: #D4926F;
+  --accent-dark: #B8705A;
+  --text-primary: #F0E8E3;
+  --text-secondary: #9A8A84;
+  --text-muted: #7A6A64;
 }
 
 @theme inline {
@@ -26,6 +27,7 @@ html {
 
 body {
   background-color: var(--bg-primary);
+  background-image: radial-gradient(ellipse 80% 50% at 50% -10%, rgba(201,133,106,0.13) 0%, transparent 70%);
   color: var(--text-primary);
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
   overflow-x: hidden;
@@ -39,28 +41,42 @@ body {
   background: var(--bg-primary);
 }
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(to bottom, #14b8a6, #8b5cf6);
+  background: linear-gradient(to bottom, #C9856A, #B8705A);
   border-radius: 3px;
 }
 
-/* Gradient text utility */
+/* Accent text utility */
 .gradient-text {
-  background: linear-gradient(135deg, #14b8a6, #8b5cf6);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #C9856A;
+  background: none;
+  -webkit-background-clip: unset;
+  -webkit-text-fill-color: #C9856A;
+  background-clip: unset;
 }
 
 /* Gradient border card */
 .gradient-border {
-  border: 1px solid transparent;
-  background: linear-gradient(var(--bg-card), var(--bg-card)) padding-box,
-    linear-gradient(135deg, rgba(20,184,166,0.4), rgba(139,92,246,0.4)) border-box;
+  position: relative;
+  overflow: hidden;
+  border: 0.5px solid rgba(201,133,106,0.12);
+  background: linear-gradient(145deg, #2E2522 0%, #231C1A 100%);
+}
+
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201,133,106,0.35), transparent);
+  pointer-events: none;
+  z-index: 1;
 }
 
 /* Selection color */
 ::selection {
-  background: rgba(20, 184, 166, 0.25);
+  background: rgba(201,133,106,0.25);
   color: var(--text-primary);
 }
 

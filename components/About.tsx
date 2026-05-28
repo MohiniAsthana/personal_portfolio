@@ -33,7 +33,7 @@ export default function About() {
         >
           {/* Section label */}
           <motion.div variants={fadeUp} className="mb-4">
-            <span className="text-sm text-[#14b8a6] font-mono tracking-wider uppercase">
+            <span className="text-sm text-[#C9856A] font-mono tracking-wider uppercase">
               01. About
             </span>
           </motion.div>
@@ -43,20 +43,20 @@ export default function About() {
             <div>
               <motion.h2
                 variants={fadeUp}
-                className="text-3xl md:text-4xl font-bold text-[#f1f5f9] mb-8 leading-tight"
+                className="text-3xl md:text-4xl font-bold text-[#F0E8E3] mb-8 leading-tight"
               >
                 I&apos;ve always believed the hardest problems aren&apos;t technical —
                 <span className="gradient-text"> they&apos;re human.</span>
               </motion.h2>
 
-              <motion.div variants={stagger} className="space-y-5 text-[#94a3b8] leading-relaxed">
+              <motion.div variants={stagger} className="space-y-5 text-[#9A8A84] leading-relaxed">
                 <motion.p variants={fadeUp}>
                   My career started in engineering. At Cisco, I built infrastructure monitoring
                   systems from the ground up — alert platforms, predictive remediation tools, the kind
                   of work that lives deep in the stack and rarely gets seen. But what I kept noticing
                   wasn&apos;t the technology. It was the gap between what systems{" "}
-                  <em className="text-[#f1f5f9]">could</em> do and what people actually{" "}
-                  <em className="text-[#f1f5f9]">understood</em> about them.
+                  <em className="text-[#F0E8E3]">could</em> do and what people actually{" "}
+                  <em className="text-[#F0E8E3]">understood</em> about them.
                 </motion.p>
 
                 <motion.p variants={fadeUp}>
@@ -74,14 +74,10 @@ export default function About() {
                 </motion.p>
 
                 <motion.p variants={fadeUp}>
-                  Now at NTU, I&apos;m studying that translation more formally — researching how
-                  humans and AI systems make decisions together, where trust breaks down, and how
-                  leadership shapes those dynamics. The MBA gives me the strategic lens to align
-                  technology with business — not just the vocabulary, but the frameworks to make
-                  that alignment deliberate and durable.
+                  As I complete my MBA, I&apos;m studying that translation more formally — researching how humans and AI systems make decisions together, where trust breaks down, and how leadership shapes those dynamics. Somewhere along the way, I became genuinely fascinated by agentic systems: not just what they can do, but what they reveal about the humans working alongside them. The MBA gives me the strategic lens to make that alignment deliberate and durable.
                 </motion.p>
 
-                <motion.p variants={fadeUp} className="text-[#f1f5f9] font-medium">
+                <motion.p variants={fadeUp} className="text-[#F0E8E3] font-medium">
                   The thread across all of it: technology is most powerful when it disappears into
                   the background and just <em>works</em>{" "}for people. That&apos;s what I build toward.
                 </motion.p>
@@ -105,7 +101,7 @@ export default function About() {
                 </div>
                 {/* Decorative corner accent */}
                 <div
-                  className="absolute -bottom-3 -right-3 w-full h-full rounded-2xl border border-[#14b8a6]/20 -z-10"
+                  className="absolute -bottom-3 -right-3 w-full h-full rounded-2xl border border-[#C9856A]/20 -z-10"
                 />
               </motion.div>
 
@@ -115,10 +111,10 @@ export default function About() {
                   <motion.div
                     key={h.label}
                     variants={fadeUp}
-                    className="gradient-border rounded-xl px-6 py-5 bg-[#111827] flex items-center gap-5"
+                    className="gradient-border rounded-xl px-6 py-5 bg-[#2A2320] flex items-center gap-5"
                   >
                     <div className="text-3xl font-bold gradient-text shrink-0">{h.value}</div>
-                    <div className="text-sm text-[#94a3b8]">{h.label}</div>
+                    <div className="text-sm text-[#9A8A84]">{h.label}</div>
                   </motion.div>
                 ))}
               </motion.div>

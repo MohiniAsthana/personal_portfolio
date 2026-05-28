@@ -18,7 +18,7 @@ interface SkillGroup {
 const skillGroups: SkillGroup[] = [
   {
     category: "Product Leadership",
-    color: "#14b8a6",
+    color: "#C9856A",
     icon: "◈",
     skills: [
       { name: "Product Strategy", description: "Roadmap definition, OKRs, and prioritisation frameworks that align technology decisions with business outcomes." },
@@ -30,7 +30,7 @@ const skillGroups: SkillGroup[] = [
   },
   {
     category: "Engineering",
-    color: "#3b82f6",
+    color: "#C9856A",
     icon: "◉",
     skills: [
       { name: "Python", description: "Primary programming language across infrastructure tooling, data pipelines, and ML/research work." },
@@ -42,7 +42,7 @@ const skillGroups: SkillGroup[] = [
   },
   {
     category: "Research & AI",
-    color: "#8b5cf6",
+    color: "#C9856A",
     icon: "◎",
     skills: [
       { name: "Human-AI Systems", description: "Empirical research on how humans and AI systems make decisions together and where trust breaks down." },
@@ -54,7 +54,7 @@ const skillGroups: SkillGroup[] = [
   },
   {
     category: "Leadership & Strategy",
-    color: "#f59e0b",
+    color: "#C9856A",
     icon: "◇",
     skills: [
       { name: "Cross-functional Leadership", description: "Led multiple simultaneous initiatives across engineering, product, design, and customer success teams." },
@@ -89,13 +89,13 @@ export default function Skills() {
           animate={headerInView ? "show" : "hidden"}
           className="mb-16"
         >
-          <span className="text-sm text-[#14b8a6] font-mono tracking-wider uppercase block mb-4">
+          <span className="text-sm text-[#C9856A] font-mono tracking-wider uppercase block mb-4">
             03. Skills
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-[#f1f5f9] mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#F0E8E3] mb-4">
             The intersection where I live
           </h2>
-          <p className="text-[#94a3b8] max-w-xl">
+          <p className="text-[#9A8A84] max-w-xl">
             Select a category, then explore individual skills. Click any skill to see how I use it.
           </p>
         </motion.div>
@@ -110,8 +110,8 @@ export default function Skills() {
                 whileHover={{ x: 4 }}
                 className={`shrink-0 flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all duration-200 cursor-pointer text-left border ${
                   activeGroup.category === group.category
-                    ? "border-transparent text-[#f1f5f9]"
-                    : "border-[#1e2d45] text-[#94a3b8] hover:text-[#f1f5f9] bg-transparent"
+                    ? "border-transparent text-[#F0E8E3]"
+                    : "border-[rgba(201,133,106,0.12)] text-[#9A8A84] hover:text-[#F0E8E3] bg-transparent"
                 }`}
                 style={
                   activeGroup.category === group.category
@@ -145,7 +145,7 @@ export default function Skills() {
                     className={`text-left p-4 rounded-xl border transition-all duration-200 cursor-pointer ${
                       activeSkill?.name === skill.name
                         ? "border-transparent"
-                        : "border-[#1e2d45] bg-[#111827] hover:border-[#1e2d45]"
+                        : "border-[rgba(201,133,106,0.12)] bg-[#2A2320] hover:border-[rgba(201,133,106,0.12)]"
                     }`}
                     style={
                       activeSkill?.name === skill.name
@@ -168,14 +168,14 @@ export default function Skills() {
                           initial={{ opacity: 0, height: 0 }}
                           animate={{ opacity: 1, height: "auto" }}
                           exit={{ opacity: 0, height: 0 }}
-                          className="text-xs text-[#94a3b8] leading-relaxed mt-2"
+                          className="text-xs text-[#9A8A84] leading-relaxed mt-2"
                         >
                           {skill.description}
                         </motion.p>
                       )}
                     </AnimatePresence>
                     {activeSkill?.name !== skill.name && (
-                      <div className="text-xs text-[#475569]">Click to explore</div>
+                      <div className="text-xs text-[#7A6A64]">Click to explore</div>
                     )}
                   </motion.button>
                 ))}

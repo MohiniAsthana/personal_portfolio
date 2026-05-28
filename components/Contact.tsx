@@ -30,26 +30,41 @@ function GitHubIcon({ size = 22 }: { size?: number }) {
   );
 }
 
+function MediumIcon({ size = 22 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
+      <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/>
+    </svg>
+  );
+}
+
 const links = [
   {
     label: "LinkedIn",
     value: "linkedin.com/in/mohiniasthana",
     href: "https://www.linkedin.com/in/mohiniasthana",
-    color: "#3b82f6",
+    color: "#C9856A",
     Icon: LinkedInIcon,
   },
   {
     label: "GitHub",
     value: "github.com/MohiniAsthana",
     href: "https://github.com/MohiniAsthana",
-    color: "#94a3b8",
+    color: "#C9856A",
     Icon: GitHubIcon,
+  },
+  {
+    label: "Medium",
+    value: "medium.com/@mohini.asthana",
+    href: "https://medium.com/@mohini.asthana",
+    color: "#C9856A",
+    Icon: MediumIcon,
   },
   {
     label: "Email",
     value: "mohini.asthana@gmail.com",
     href: "mailto:mohini.asthana@gmail.com",
-    color: "#14b8a6",
+    color: "#C9856A",
     Icon: ({ size }: { size?: number }) => <Mail size={size} strokeWidth={1.5} />,
   },
 ];
@@ -59,7 +74,7 @@ export default function Contact() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="contact" className="py-24 px-6 bg-[#0f1629]">
+    <section id="contact" className="py-24 px-6 bg-[#1A1614]">
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <motion.div
@@ -71,17 +86,17 @@ export default function Contact() {
         >
           <motion.span
             variants={fadeUp}
-            className="text-sm text-[#14b8a6] font-mono tracking-wider uppercase block mb-4"
+            className="text-sm text-[#C9856A] font-mono tracking-wider uppercase block mb-4"
           >
             07. Contact
           </motion.span>
           <motion.h2
             variants={fadeUp}
-            className="text-3xl md:text-4xl font-bold text-[#f1f5f9] mb-4"
+            className="text-3xl md:text-4xl font-bold text-[#F0E8E3] mb-4"
           >
             Let&apos;s connect
           </motion.h2>
-          <motion.p variants={fadeUp} className="text-[#94a3b8] max-w-lg mx-auto leading-relaxed">
+          <motion.p variants={fadeUp} className="text-[#9A8A84] max-w-lg mx-auto leading-relaxed">
             Whether you&apos;re working on something interesting or just want to say hello — find me here.
           </motion.p>
         </motion.div>
@@ -101,8 +116,8 @@ export default function Contact() {
               rel="noopener noreferrer"
               variants={fadeUp}
               whileHover={{ y: -4 }}
-              className="gradient-border rounded-2xl bg-[#111827] hover:bg-[#1a2235] px-8 py-7 flex flex-col items-center gap-4 flex-1 cursor-pointer transition-colors duration-300"
-              style={{ maxWidth: "280px", margin: "0 auto" }}
+              className="gradient-border rounded-2xl hover:bg-[#2E2522] px-8 py-7 flex flex-col items-center gap-4 flex-1 cursor-pointer transition-colors duration-300"
+              style={{ maxWidth: "240px", margin: "0 auto" }}
             >
               <div
                 className="w-12 h-12 rounded-xl flex items-center justify-center shrink-0"
@@ -111,7 +126,7 @@ export default function Contact() {
                 <link.Icon size={22} />
               </div>
               <div className="text-center">
-                <div className="text-xs text-[#475569] mb-1 font-mono uppercase tracking-wider">{link.label}</div>
+                <div className="text-xs text-[#7A6A64] mb-1 font-mono uppercase tracking-wider">{link.label}</div>
                 <div className="text-sm transition-colors duration-200" style={{ color: link.color }}>
                   {link.value}
                 </div>

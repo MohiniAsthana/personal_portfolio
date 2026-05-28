@@ -20,7 +20,7 @@ const awards: Award[] = [
     description:
       "Selected as one of 100 most inspiring MBA leaders globally for the 10th edition of the MBA World Summit at IPAI, Europe's largest AI innovation hub. Invited to lead a Summit Laboratory Session: \"The Unseen Truth About Beautiful Lies — How Agentic AI can make truth harder to fake than fiction.\"",
     icon: "◉",
-    color: "#e879f9",
+    color: "#C9856A",
   },
   {
     title: "1st Place — Mazda Brand Strategy Challenge",
@@ -29,7 +29,7 @@ const awards: Award[] = [
     description:
       "Won the competitive Mazda Brand Strategy Challenge among MBA cohorts, presenting a go-to-market and product strategy under real business constraints and executive evaluation.",
     icon: "◆",
-    color: "#8b5cf6",
+    color: "#C9856A",
   },
   {
     title: "Delphix India Hackathon Winner",
@@ -38,7 +38,7 @@ const awards: Award[] = [
     description:
       "Built a POC to horizontally scale Delphix's hyperscale compliance services — previously limited to a single node per tightly coupled service. Designed a multi-pod architecture with an orchestrating controller to enable true horizontal scaling, directly addressing a performance ceiling in the product's core compliance engine.",
     icon: "⬡",
-    color: "#14b8a6",
+    color: "#C9856A",
   },
   {
     title: "Apex Ascent Award",
@@ -47,7 +47,7 @@ const awards: Award[] = [
     description:
       "Top performer recognition, awarded to individuals who demonstrated exceptional impact and leadership beyond their scope. One of the highest internal honours at Delphix.",
     icon: "▲",
-    color: "#14b8a6",
+    color: "#C9856A",
   },
   {
     title: "You Amaze Award",
@@ -56,7 +56,7 @@ const awards: Award[] = [
     description:
       "Peer-nominated award recognising exceptional contributions that went beyond the expected. Received multiple times across the tenure at Cisco.",
     icon: "★",
-    color: "#f59e0b",
+    color: "#C9856A",
   },
   {
     title: "You Inspire Award",
@@ -65,7 +65,7 @@ const awards: Award[] = [
     description:
       "Peer recognition for inspiring others through approach, work quality, and attitude. Received alongside the You Amaze Award from colleagues across teams.",
     icon: "✦",
-    color: "#3b82f6",
+    color: "#C9856A",
   },
 ];
 
@@ -85,7 +85,7 @@ function AwardCard({ award, index }: { award: Award; index: number }) {
       animate={inView ? { opacity: 1, scale: 1 } : {}}
       transition={{ duration: 0.5, ease: "easeOut", delay: index * 0.08 }}
       whileHover={{ y: -4, transition: { duration: 0.2 } }}
-      className="gradient-border rounded-2xl p-6 bg-[#111827] group cursor-default"
+      className="gradient-border rounded-2xl p-6 bg-[#2A2320] group cursor-default"
     >
       {/* Icon + year */}
       <div className="flex items-start justify-between mb-4">
@@ -95,7 +95,7 @@ function AwardCard({ award, index }: { award: Award; index: number }) {
         >
           {award.icon}
         </div>
-        <span className="text-xs text-[#475569] font-mono">{award.year}</span>
+        <span className="text-xs text-[#7A6A64] font-mono">{award.year}</span>
       </div>
 
       {/* Content */}
@@ -105,8 +105,8 @@ function AwardCard({ award, index }: { award: Award; index: number }) {
       >
         {award.title}
       </h3>
-      <div className="text-xs text-[#475569] mb-3 font-mono">{award.org}</div>
-      <p className="text-sm text-[#94a3b8] leading-relaxed">{award.description}</p>
+      <div className="text-xs text-[#7A6A64] mb-3 font-mono">{award.org}</div>
+      <p className="text-sm text-[#9A8A84] leading-relaxed">{award.description}</p>
     </motion.div>
   );
 }
@@ -126,13 +126,13 @@ export default function Awards() {
           animate={headerInView ? "show" : "hidden"}
           className="mb-16"
         >
-          <span className="text-sm text-[#14b8a6] font-mono tracking-wider uppercase block mb-4">
+          <span className="text-sm text-[#C9856A] font-mono tracking-wider uppercase block mb-4">
             05. Awards
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-[#f1f5f9] mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#F0E8E3] mb-4">
             The work, acknowledged
           </h2>
-          <p className="text-[#94a3b8] max-w-xl">
+          <p className="text-[#9A8A84] max-w-xl">
             Recognition from peers and organisations for impact that went beyond the expected.
           </p>
         </motion.div>

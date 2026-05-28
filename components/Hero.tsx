@@ -68,14 +68,14 @@ export default function Hero() {
       <div
         className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full pointer-events-none"
         style={{
-          background: "radial-gradient(circle, rgba(20,184,166,0.08) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(201,133,106,0.08) 0%, transparent 70%)",
           filter: "blur(60px)",
         }}
       />
       <div
         className="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full pointer-events-none"
         style={{
-          background: "radial-gradient(circle, rgba(139,92,246,0.08) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(201,133,106,0.05) 0%, transparent 70%)",
           filter: "blur(60px)",
         }}
       />
@@ -85,7 +85,7 @@ export default function Hero() {
         className="absolute inset-0 pointer-events-none"
         style={{
           backgroundImage:
-            "linear-gradient(rgba(30,45,69,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(30,45,69,0.3) 1px, transparent 1px)",
+            "linear-gradient(rgba(201,133,106,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(201,133,106,0.06) 1px, transparent 1px)",
           backgroundSize: "60px 60px",
           maskImage: "radial-gradient(ellipse at center, black 30%, transparent 80%)",
         }}
@@ -99,16 +99,16 @@ export default function Hero() {
       >
         {/* Eyebrow */}
         <motion.div variants={item} className="mb-6">
-          <span className="inline-flex items-center gap-2 text-sm text-[#94a3b8] border border-[#1e2d45] rounded-full px-4 py-1.5 bg-[#111827]/50">
-            <span className="w-2 h-2 rounded-full bg-[#14b8a6] animate-pulse" />
-            Technical Product Leader · Researcher · NTU MBA
+          <span className="inline-flex items-center gap-2 text-sm text-[#9A8A84] border border-[rgba(201,133,106,0.2)] rounded-full px-4 py-1.5 bg-[#2A2320]/50">
+            <span className="w-2 h-2 rounded-full bg-[#C9856A] animate-pulse" />
+            Technical Product Leader · AI Systems · NTU MBA
           </span>
         </motion.div>
 
         {/* Name */}
         <motion.h1
           variants={item}
-          className="text-5xl md:text-7xl lg:text-8xl font-bold text-[#f1f5f9] tracking-tight mb-4"
+          className="text-5xl md:text-7xl lg:text-8xl font-bold text-[#F0E8E3] tracking-tight mb-4"
         >
           Mohini Asthana
         </motion.h1>
@@ -116,7 +116,7 @@ export default function Hero() {
         {/* Animated tagline */}
         <motion.div
           variants={item}
-          className="text-2xl md:text-4xl font-semibold text-[#94a3b8] mb-8 h-12 flex items-center justify-center gap-3"
+          className="text-2xl md:text-4xl font-semibold text-[#9A8A84] mb-8 h-12 flex items-center justify-center gap-3"
         >
           <AnimatedWord />
         </motion.div>
@@ -124,7 +124,7 @@ export default function Hero() {
         {/* Subtitle */}
         <motion.p
           variants={item}
-          className="text-base md:text-lg text-[#94a3b8] max-w-2xl mx-auto leading-relaxed mb-10"
+          className="text-base md:text-lg text-[#9A8A84] max-w-2xl mx-auto leading-relaxed mb-10"
         >
           I build at the intersection of technology and human systems —
           making complex things feel effortless.
@@ -133,11 +133,11 @@ export default function Hero() {
         {/* CTAs */}
         <motion.div variants={item} className="flex flex-col sm:flex-row gap-4 justify-center">
           <motion.button
-            whileHover={{ scale: 1.05, boxShadow: "0 0 25px rgba(20,184,166,0.3)" }}
+            whileHover={{ scale: 1.05, boxShadow: "0 0 18px rgba(201,133,106,0.28), 0 2px 8px rgba(0,0,0,0.4)" }}
             whileTap={{ scale: 0.97 }}
             onClick={() => document.querySelector("#experience")?.scrollIntoView({ behavior: "smooth" })}
-            className="px-8 py-3.5 rounded-full text-sm font-semibold text-[#0a0e1a] cursor-pointer"
-            style={{ background: "linear-gradient(135deg, #14b8a6, #8b5cf6)" }}
+            className="px-8 py-3.5 rounded-full text-sm font-semibold text-[#F0E8E3] cursor-pointer"
+            style={{ background: "linear-gradient(135deg, #D4926F 0%, #C9856A 50%, #B8705A 100%)", boxShadow: "0 0 18px rgba(201,133,106,0.28), 0 2px 8px rgba(0,0,0,0.4)" }}
           >
             View My Work
           </motion.button>
@@ -145,7 +145,7 @@ export default function Hero() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.97 }}
             onClick={() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })}
-            className="px-8 py-3.5 rounded-full text-sm font-semibold text-[#f1f5f9] border border-[#1e2d45] hover:border-[#14b8a6] transition-colors duration-200 cursor-pointer"
+            className="px-8 py-3.5 rounded-full text-sm font-semibold text-[#F0E8E3] border border-[rgba(201,133,106,0.2)] hover:border-[#C9856A] transition-colors duration-200 cursor-pointer"
           >
             Get in Touch
           </motion.button>
@@ -159,11 +159,11 @@ export default function Hero() {
         transition={{ delay: 1.5, duration: 0.8 }}
         className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
       >
-        <span className="text-xs text-[#475569] tracking-widest uppercase">Scroll</span>
+        <span className="text-xs text-[#7A6A64] tracking-widest uppercase">Scroll</span>
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ repeat: Infinity, duration: 1.8, ease: "easeInOut" }}
-          className="w-px h-8 bg-gradient-to-b from-[#14b8a6] to-transparent"
+          className="w-px h-8 bg-gradient-to-b from-[#C9856A] to-transparent"
         />
       </motion.div>
     </section>
