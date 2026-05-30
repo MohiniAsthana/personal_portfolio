@@ -45,7 +45,7 @@ export default function HeroBackground() {
 
     let orbs = makeOrbs();
     let nodes = makeNodes();
-    const MAX_DIST = 120;
+    const MAX_DIST = 140;
 
     const draw = () => {
       t++;
@@ -83,7 +83,7 @@ export default function HeroBackground() {
           const dy = nodes[i].y - nodes[j].y;
           const dist = Math.sqrt(dx * dx + dy * dy);
           if (dist < MAX_DIST) {
-            const alpha = (1 - dist / MAX_DIST) * 0.12;
+            const alpha = (1 - dist / MAX_DIST) * 0.22;
             ctx.beginPath();
             ctx.moveTo(nodes[i].x, nodes[i].y);
             ctx.lineTo(nodes[j].x, nodes[j].y);
