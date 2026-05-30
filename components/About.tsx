@@ -122,7 +122,7 @@ export default function About() {
               </motion.div>
 
               {/* Typographic highlight list */}
-              <motion.div variants={stagger} className="flex flex-col">
+              <motion.div variants={stagger} className="flex flex-col w-full max-w-sm mx-auto">
                 {highlights.map((h, i) => (
                   <motion.div
                     key={h.category}
@@ -135,7 +135,7 @@ export default function About() {
                     }}
                   >
                     <div style={{
-                      fontSize: "10px",
+                      fontSize: "11px",
                       textTransform: "uppercase",
                       letterSpacing: "0.1em",
                       color: "#C9856A",
@@ -144,7 +144,7 @@ export default function About() {
                       {h.category}
                     </div>
                     <div style={{
-                      fontSize: "13px",
+                      fontSize: "15px",
                       fontWeight: 500,
                       color: "#EDE5F0",
                       lineHeight: 1.3,
@@ -152,7 +152,7 @@ export default function About() {
                       {h.headline}
                     </div>
                     <div style={{
-                      fontSize: "11px",
+                      fontSize: "12px",
                       color: "#90788E",
                       marginTop: "2px",
                     }}>
