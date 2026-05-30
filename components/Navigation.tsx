@@ -10,7 +10,6 @@ const navLinks = [
   { label: "Research", href: "#research" },
   { label: "Awards", href: "#awards" },
   { label: "Testimonials", href: "#testimonials" },
-  { label: "Contact", href: "#contact" },
 ];
 
 export default function Navigation() {
@@ -63,10 +62,11 @@ export default function Navigation() {
         <motion.a
           href="#"
           onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }}
-          className="text-lg font-bold gradient-text cursor-pointer"
-          whileHover={{ scale: 1.05 }}
+          className="cursor-pointer"
+          style={{ fontSize: "14px", fontWeight: 500, color: "#EDE5F0", letterSpacing: "0.02em" }}
+          whileHover={{ scale: 1.02 }}
         >
-          MA
+          Mohini Asthana
         </motion.a>
 
         {/* Desktop nav */}

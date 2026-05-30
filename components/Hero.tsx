@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { motion, type Variants } from "framer-motion";
+import HeroBackground from "./HeroBackground";
 
 const words = ["Simplifier.", "Researcher.", "Builder.", "Leader."];
 
@@ -63,34 +64,16 @@ export default function Hero() {
     <section
       id="hero"
       className="relative min-h-screen flex flex-col items-center justify-center px-6 overflow-hidden"
+      style={{
+        background: "#150D14",
+        backgroundImage:
+          "radial-gradient(ellipse 80% 50% at 50% -10%, rgba(201,133,106,0.13) 0%, transparent 70%)",
+      }}
     >
-      {/* Ambient background blobs */}
-      <div
-        className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full pointer-events-none"
-        style={{
-          background: "radial-gradient(circle, rgba(201,133,106,0.08) 0%, transparent 70%)",
-          filter: "blur(60px)",
-        }}
-      />
-      <div
-        className="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full pointer-events-none"
-        style={{
-          background: "radial-gradient(circle, rgba(201,133,106,0.05) 0%, transparent 70%)",
-          filter: "blur(60px)",
-        }}
-      />
+      {/* Bokeh + constellation canvas */}
+      <HeroBackground />
 
-      {/* Grid pattern overlay */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          backgroundImage:
-            "linear-gradient(rgba(201,133,106,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(201,133,106,0.06) 1px, transparent 1px)",
-          backgroundSize: "60px 60px",
-          maskImage: "radial-gradient(ellipse at center, black 30%, transparent 80%)",
-        }}
-      />
-
+      {/* Hero content — sits above canvas */}
       <motion.div
         variants={container}
         initial="hidden"
@@ -157,7 +140,7 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5, duration: 0.8 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-10"
       >
         <span className="text-xs text-[#90788E] tracking-widest uppercase">Scroll</span>
         <motion.div
