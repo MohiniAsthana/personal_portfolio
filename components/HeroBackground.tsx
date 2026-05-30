@@ -25,11 +25,11 @@ export default function HeroBackground() {
 
     // --- BOKEH ORBS (bottom layer) ---
     const makeOrbs = () => [
-      { x: W()*0.10, y: H()*0.25, r: 95,  vx:  0.15, vy:  0.08, c: '201,133,106', a: 0.07  },
-      { x: W()*0.75, y: H()*0.70, r: 105, vx: -0.10, vy: -0.07, c: '212,169,106', a: 0.055 },
-      { x: W()*0.55, y: H()*0.10, r: 65,  vx:  0.07, vy:  0.12, c: '180,112,90',  a: 0.045 },
-      { x: W()*0.88, y: H()*0.20, r: 55,  vx: -0.13, vy:  0.08, c: '201,133,106', a: 0.06  },
-      { x: W()*0.25, y: H()*0.85, r: 75,  vx:  0.09, vy: -0.10, c: '212,169,106', a: 0.045 },
+      { x: W()*0.10, y: H()*0.25, r: 120, vx:  0.15, vy:  0.08, c: '201,133,106', a: 0.22  },
+      { x: W()*0.75, y: H()*0.70, r: 135, vx: -0.10, vy: -0.07, c: '212,169,106', a: 0.19  },
+      { x: W()*0.55, y: H()*0.10, r: 85,  vx:  0.07, vy:  0.12, c: '180,112,90',  a: 0.17  },
+      { x: W()*0.88, y: H()*0.20, r: 75,  vx: -0.13, vy:  0.08, c: '201,133,106', a: 0.21  },
+      { x: W()*0.25, y: H()*0.85, r: 100, vx:  0.09, vy: -0.10, c: '212,169,106', a: 0.17  },
     ];
 
     // --- CONSTELLATION NODES (top layer, 14 nodes only) ---
@@ -39,13 +39,13 @@ export default function HeroBackground() {
       vx: (Math.random() - 0.5) * 0.18,
       vy: (Math.random() - 0.5) * 0.18,
       r: Math.random() * 1.2 + 0.6,
-      alpha: Math.random() * 0.35 + 0.2,
+      alpha: Math.random() * 0.3 + 0.58,
       phase: Math.random() * Math.PI * 2,
     }));
 
     let orbs = makeOrbs();
     let nodes = makeNodes();
-    const MAX_DIST = 140;
+    const MAX_DIST = 185;
 
     const draw = () => {
       t++;
@@ -83,12 +83,12 @@ export default function HeroBackground() {
           const dy = nodes[i].y - nodes[j].y;
           const dist = Math.sqrt(dx * dx + dy * dy);
           if (dist < MAX_DIST) {
-            const alpha = (1 - dist / MAX_DIST) * 0.22;
+            const alpha = (1 - dist / MAX_DIST) * 0.75;
             ctx.beginPath();
             ctx.moveTo(nodes[i].x, nodes[i].y);
             ctx.lineTo(nodes[j].x, nodes[j].y);
             ctx.strokeStyle = `rgba(201,133,106,${alpha})`;
-            ctx.lineWidth = 0.5;
+            ctx.lineWidth = 1.2;
             ctx.stroke();
           }
         }
@@ -97,9 +97,22 @@ export default function HeroBackground() {
       // Draw nodes with gentle pulse
       nodes.forEach(n => {
         const pulse = Math.sin(t * 0.03 + n.phase) * 0.12;
+        const a = Math.max(0, n.alpha + pulse);
+
+        // Glow halo
+        const glow = ctx.createRadialGradient(n.x, n.y, 0, n.x, n.y, n.r * 9);
+        glow.addColorStop(0,    `rgba(201,133,106,${a * 0.75})`);
+        glow.addColorStop(0.35, `rgba(201,133,106,${a * 0.35})`);
+        glow.addColorStop(1,    `rgba(201,133,106,0)`);
+        ctx.beginPath();
+        ctx.arc(n.x, n.y, n.r * 9, 0, Math.PI * 2);
+        ctx.fillStyle = glow;
+        ctx.fill();
+
+        // Solid core
         ctx.beginPath();
         ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(240,232,227,${Math.max(0, n.alpha + pulse)})`;
+        ctx.fillStyle = `rgba(255,248,244,${Math.min(1, a * 1.6)})`;
         ctx.fill();
       });
 

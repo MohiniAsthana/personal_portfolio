@@ -14,8 +14,26 @@ const stagger: Variants = {
 };
 
 const highlights = [
-  { value: "7+", label: "Years across engineering & product" },
-  { value: "Top 100", label: "Most Inspiring MBA Leaders · MBA World Summit 2026, Heilbronn" },
+  {
+    category: "ENGINEERING",
+    headline: "Started writing the systems. Stayed to shape what they became.",
+    sub: "7+ years · infrastructure, data platforms, and AI",
+  },
+  {
+    category: "LEADERSHIP",
+    headline: "Valedictorian, NTU MBA · Class of 2026",
+    sub: "Awarded Women in Business Scholarship",
+  },
+  {
+    category: "RECOGNITION",
+    headline: "Top 100 Most Inspiring MBA Leaders",
+    sub: "MBA World Summit 2026 · IPAI, Heilbronn",
+  },
+  {
+    category: "SPEAKING",
+    headline: "Summit Lab Session Speaker",
+    sub: "“The Unseen Truth About Beautiful Lies” · IPAI Heilbronn",
+  },
 ];
 
 export default function About() {
@@ -54,13 +72,11 @@ export default function About() {
                   My career started in engineering. At Cisco, I built infrastructure monitoring
                   systems from the ground up — alert platforms, predictive remediation tools, the kind
                   of work that lives deep in the stack and rarely gets seen. But what I kept noticing
-                  wasn&apos;t the technology. It was the gap between what systems{" "}
-                  <em className="text-[#EDE5F0]">could</em> do and what people actually{" "}
-                  <em className="text-[#EDE5F0]">understood</em> about them.
+                  wasn&apos;t the technology. It was the gap between what systems could do and what people actually understood about them.
                 </motion.p>
 
                 <motion.p variants={fadeUp}>
-                  That gap became my work.
+                  <span style={{ color: "#D4A96A" }}>That gap became my work.</span>
                 </motion.p>
 
                 <motion.p variants={fadeUp}>
@@ -74,7 +90,7 @@ export default function About() {
                 </motion.p>
 
                 <motion.p variants={fadeUp}>
-                  As I complete my MBA, I&apos;m studying that translation more formally — researching how humans and AI systems make decisions together, where trust breaks down, and how leadership shapes those dynamics. Somewhere along the way, I became genuinely fascinated by agentic systems: not just what they can do, but what they reveal about the humans working alongside them. The MBA gives me the strategic lens to make that alignment deliberate and durable.
+                  As I complete my MBA, I&apos;m studying that translation more formally — researching how humans and AI systems make decisions together, where trust breaks down, and how leadership shapes those dynamics. Somewhere along the way, I became genuinely fascinated by agentic systems: <span style={{ color: "#D4A96A" }}>not just what they can do, but what they reveal about the humans working alongside them</span>. The MBA gives me the strategic lens to make that alignment deliberate and durable.
                 </motion.p>
 
                 <motion.p variants={fadeUp} className="text-[#EDE5F0] font-medium">
@@ -105,16 +121,43 @@ export default function About() {
                 />
               </motion.div>
 
-              {/* Stats grid */}
-              <motion.div variants={stagger} className="flex flex-col gap-4">
-                {highlights.map((h) => (
+              {/* Typographic highlight list */}
+              <motion.div variants={stagger} className="flex flex-col">
+                {highlights.map((h, i) => (
                   <motion.div
-                    key={h.label}
+                    key={h.category}
                     variants={fadeUp}
-                    className="gradient-border rounded-xl px-6 py-5 flex items-center gap-5"
+                    style={{
+                      padding: "10px 0",
+                      borderBottom: i < highlights.length - 1
+                        ? "0.5px solid rgba(201,133,106,0.15)"
+                        : "none",
+                    }}
                   >
-                    <div className="text-3xl font-bold gradient-text shrink-0">{h.value}</div>
-                    <div className="text-sm text-[#90788E]">{h.label}</div>
+                    <div style={{
+                      fontSize: "10px",
+                      textTransform: "uppercase",
+                      letterSpacing: "0.1em",
+                      color: "#C9856A",
+                      marginBottom: "4px",
+                    }}>
+                      {h.category}
+                    </div>
+                    <div style={{
+                      fontSize: "13px",
+                      fontWeight: 500,
+                      color: "#EDE5F0",
+                      lineHeight: 1.3,
+                    }}>
+                      {h.headline}
+                    </div>
+                    <div style={{
+                      fontSize: "11px",
+                      color: "#90788E",
+                      marginTop: "2px",
+                    }}>
+                      {h.sub}
+                    </div>
                   </motion.div>
                 ))}
               </motion.div>

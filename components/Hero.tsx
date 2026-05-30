@@ -4,11 +4,11 @@ import { useEffect, useRef } from "react";
 import { motion, type Variants } from "framer-motion";
 import HeroBackground from "./HeroBackground";
 
-const words = ["Simplifier.", "Researcher.", "Builder.", "Leader."];
+const words = ["Leader.", "Researcher.", "Simplifier.", "Builder.", "Translator.", "Architect."];
 
 function AnimatedWord() {
   const containerRef = useRef<HTMLSpanElement>(null);
-  const indexRef = useRef(0);
+  const indexRef = useRef(1);
 
   useEffect(() => {
     const el = containerRef.current;
@@ -65,7 +65,7 @@ export default function Hero() {
       id="hero"
       className="relative min-h-screen flex flex-col items-center justify-center px-6 overflow-hidden"
       style={{
-        background: "#150D14",
+        background: "#1C1018",
         backgroundImage:
           "radial-gradient(ellipse 80% 50% at 50% -10%, rgba(201,133,106,0.13) 0%, transparent 70%)",
       }}
