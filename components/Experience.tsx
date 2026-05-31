@@ -70,6 +70,7 @@ const columns: Column[] = [
         bullets: [
           "Statistical analysis and empirical research on AI-augmented decision-making and human-AI trust dynamics",
           "Contributing to manuscript preparation for journal submissions on prompt engineering efficacy and human-AI collaboration",
+          "Research topics span AI hallucination detection, role-biased agent design for critical thinking, and empathy and cross-cultural competency development — examining AI's impact on human capability in management education",
         ],
       },
       { type: "tags", tags: ["LangGraph", "Claude API", "Pinecone", "Human-AI Systems"] },
@@ -179,38 +180,38 @@ const tierStyles = {
     bulletDot: "#C9856A",
   },
   2: {
-    background: () => "linear-gradient(145deg, #1E1020, #150C15)",
-    border: "0.5px solid rgba(201,133,106,0.09)",
+    background: () => "linear-gradient(145deg, #130810, #0D060C)",
+    border: "0.5px solid rgba(201,133,106,0.06)",
     borderRadius: "10px",
     padding: "13px 15px",
-    accentHeight: "1.5px",
+    accentHeight: "1px",
     accent: () =>
-      "linear-gradient(90deg, rgba(201,133,106,0.5), rgba(201,133,106,0.08) 70%, transparent 100%)",
+      "linear-gradient(90deg, rgba(201,133,106,0.28), transparent 45%)",
     titleSize: "13px",
     titleWeight: 600,
-    titleColor: "#C8B8C4",
+    titleColor: "#7A6A76",
     datesSize: "11px",
-    datesColor: "#A88A70",
+    datesColor: "#6A5448",
     bulletSize: "12px",
-    bulletColor: "#7A6878",
-    bulletDot: "rgba(201,133,106,0.5)",
+    bulletColor: "#4A3848",
+    bulletDot: "rgba(201,133,106,0.25)",
   },
   3: {
-    background: () => "rgba(201,133,106,0.025)",
-    border: "0.5px solid rgba(201,133,106,0.06)",
+    background: () => "rgba(201,133,106,0.015)",
+    border: "0.5px solid rgba(201,133,106,0.04)",
     borderRadius: "8px",
     padding: "10px 12px",
     accentHeight: "1px",
     accent: () =>
-      "linear-gradient(90deg, rgba(201,133,106,0.12), transparent)",
+      "linear-gradient(90deg, rgba(201,133,106,0.1), transparent 40%)",
     titleSize: "13px",
     titleWeight: 500,
-    titleColor: "#9A8A96",
+    titleColor: "#5A4A56",
     datesSize: "11px",
-    datesColor: "#7A6858",
+    datesColor: "#4A3A38",
     bulletSize: "11px",
-    bulletColor: "#5A4A58",
-    bulletDot: "rgba(201,133,106,0.3)",
+    bulletColor: "#3A2A36",
+    bulletDot: "rgba(201,133,106,0.15)",
   },
 } as const;
 
@@ -375,7 +376,7 @@ export default function Experience() {
             Where the work happened
           </h2>
           <p className="text-sm text-[#90788E]">
-            Three companies. Seven years of building before leading.
+            Seven years of building before leading.
           </p>
         </motion.div>
 
@@ -389,11 +390,12 @@ export default function Experience() {
           {/* Timeline row — hidden on mobile */}
           <div className="hidden md:block mb-8">
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", position: "relative" }}>
-              {/* Horizontal line */}
+              {/* Horizontal line — vertically centred on the dot row (height 16px) */}
               <div
                 style={{
                   position: "absolute",
-                  top: "calc(50% + 2px)",
+                  /* dates row ~18px + gap 6px = 24px from top; dot row is 16px tall, centre at 24 + 8 = 32px */
+                  top: "32px",
                   left: "16.67%",
                   right: "16.67%",
                   height: "1px",
@@ -414,19 +416,28 @@ export default function Experience() {
                     gap: "6px",
                   }}
                 >
+                  {/* Dates — normal flow */}
                   <div style={{ fontSize: "11px", color: "#D4A96A", fontFamily: "monospace" }}>
                     {col.dates}
                   </div>
-                  <div
-                    style={{
-                      width: "8px",
-                      height: "8px",
-                      borderRadius: "50%",
-                      backgroundColor: col.dot,
-                      border: "2px solid #180F17",
-                      boxShadow: `0 0 0 1px ${col.dot}`,
-                    }}
-                  />
+                  {/* Dot wrapper — fixed height so line top value is predictable */}
+                  <div style={{ position: "relative", width: "16px", height: "16px" }}>
+                    <div
+                      style={{
+                        position: "absolute",
+                        top: "50%",
+                        left: "50%",
+                        transform: "translate(-50%, -50%)",
+                        width: "8px",
+                        height: "8px",
+                        borderRadius: "50%",
+                        backgroundColor: col.dot,
+                        border: "2px solid #180F17",
+                        boxShadow: `0 0 0 1px ${col.dot}`,
+                      }}
+                    />
+                  </div>
+                  {/* Company name — normal flow */}
                   <div style={{ fontSize: "12px", fontWeight: 600, color: "#C9856A", letterSpacing: "0.03em" }}>
                     {col.company}
                   </div>
