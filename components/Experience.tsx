@@ -5,23 +5,17 @@ import { motion, useInView, useReducedMotion } from "framer-motion";
 
 /* ─── Types ─────────────────────────────────────────────────────────────── */
 
-interface Bullet { text: string }
-
-interface FeaturedCardData {
-  type: "featured";
-  accent: "#C9856A" | "#D4A96A";
+interface CardData {
+  type: "card";
+  tier: 1 | 2 | 3;
+  /** NTU column cards get champagne-gold top accent instead of rose-gold */
+  ntuAccent?: boolean;
+  /** Research Associate gets a slightly darker Tier-1 background */
   secondary?: boolean;
   contextLine?: string;
   title: string;
   dates: string;
   bullets: string[];
-}
-
-interface CompactCardData {
-  type: "compact";
-  title: string;
-  dates: string;
-  note: string;
 }
 
 interface BadgeData {
@@ -34,7 +28,7 @@ interface TagRowData {
   tags: string[];
 }
 
-type CardItem = FeaturedCardData | CompactCardData | BadgeData | TagRowData;
+type CardItem = CardData | BadgeData | TagRowData;
 
 interface Column {
   dot: "#D4A96A" | "#C9856A";
@@ -46,25 +40,29 @@ interface Column {
 /* ─── Data ───────────────────────────────────────────────────────────────── */
 
 const columns: Column[] = [
+  /* ── Column 1 — NTU · IBM Consulting ── */
   {
     dot: "#D4A96A",
     dates: "Jul 2025 — Present",
     company: "NTU · IBM Consulting",
     items: [
       {
-        type: "featured",
-        accent: "#D4A96A",
+        type: "card",
+        tier: 1,
+        ntuAccent: true,
         title: "Client Lead & Solution Architect — Project PRISM",
-        dates: "Jul 2025 — Jun 2026",
+        dates: "Nov 2025 — May 2026",
         bullets: [
           "Conceived and led 0-to-1 Agentic AI Digital Twin for commerce — multi-agent orchestration via LangGraph, Claude models, Pinecone memory layer",
           "Led product vision, agent architecture, business case, and APAC GTM strategy across a 5-member team",
+          "Designed credential-token authentication modeled on Plaid; implemented 4 checkout modes including Stripe Issuing virtual cards for agent-initiated transactions",
         ],
       },
       { type: "badge", label: "+ concurrent role" },
       {
-        type: "featured",
-        accent: "#D4A96A",
+        type: "card",
+        tier: 1,
+        ntuAccent: true,
         secondary: true,
         contextLine: "Division of Leadership, Management & Organisation · NBS",
         title: "Research Associate",
@@ -74,49 +72,53 @@ const columns: Column[] = [
           "Contributing to manuscript preparation for journal submissions on prompt engineering efficacy and human-AI collaboration",
         ],
       },
-      {
-        type: "tags",
-        tags: ["LangGraph", "Claude API", "Pinecone", "Human-AI Systems"],
-      },
+      { type: "tags", tags: ["LangGraph", "Claude API", "Pinecone", "Human-AI Systems"] },
     ],
   },
+
+  /* ── Column 2 — Perforce Delphix ── */
   {
     dot: "#C9856A",
     dates: "Aug 2021 — Jun 2025",
     company: "Perforce Delphix",
     items: [
       {
-        type: "featured",
-        accent: "#C9856A",
+        type: "card",
+        tier: 1,
         title: "Senior Software Development Engineer 2",
         dates: "May 2023 — Jun 2025",
         bullets: [
           "Rearchitected fragmented connector infrastructure into unified modular platform — cut customer onboarding 20%, unlocked 8% revenue uplift",
           "Led PoV pilots with enterprise pre-sales; translated client requirements into product roadmap decisions driving new acquisitions",
           "Drove Git workflow migration across 4 engineering teams — freed 3 days of branch management overhead per release cycle",
+          "Reduced documentation-driven customer escalations by redesigning company-wide documentation architecture",
         ],
       },
       { type: "badge", label: "↑ promoted" },
       {
-        type: "compact",
+        type: "card",
+        tier: 2,
         title: "Senior Software Development Engineer 1",
         dates: "Aug 2021 — Apr 2023",
-        note: "~75% escalation reduction across enterprise clients · 100% Net Revenue Retention · drove Agile adoption across 4 engineering teams",
+        bullets: [
+          "Resolved TDM and compliance friction for enterprise clients across financial services, logistics, and healthcare — ~75% reduction in escalations",
+          "Secured VP sponsorship to drive Agile adoption across 4 engineering teams; sustained 100% Net Revenue Retention through the transition",
+        ],
       },
-      {
-        type: "tags",
-        tags: ["PyArrow / PySpark", "Kubernetes", "Python", "Product Strategy"],
-      },
+      { type: "tags", tags: ["PyArrow / PySpark", "Kubernetes", "Python", "Product Strategy"] },
     ],
   },
+
+  /* ── Column 3 — Cisco ── */
   {
     dot: "#D4A96A",
     dates: "Jan 2018 — Aug 2021",
     company: "Cisco",
     items: [
       {
-        type: "featured",
-        accent: "#D4A96A",
+        type: "card",
+        tier: 1,
+        ntuAccent: true,
         title: "Software Development Engineer 2",
         dates: "Aug 2019 — Aug 2021",
         bullets: [
@@ -127,25 +129,90 @@ const columns: Column[] = [
       },
       { type: "badge", label: "↑ promoted" },
       {
-        type: "compact",
+        type: "card",
+        tier: 2,
         title: "Software Development Engineer 1",
         dates: "Jul 2018 — Jul 2019",
-        note: "Built alert categorisation engine — cut noise 85% (14M → 2M alerts); predictive remediation tooling",
+        bullets: [
+          "Built alert categorisation engine — cut noise 85% (14M → 2M alerts)",
+          "Built predictive remediation tooling that automatically resolved recurring issues before alerts fired — shifted operations from reactive to proactive",
+        ],
       },
       { type: "badge", label: "→ campus hire" },
       {
-        type: "compact",
+        type: "card",
+        tier: 3,
         title: "Software Development Engineer — Intern",
         dates: "Jan 2018 — Jun 2018",
-        note: "Built MVP and redesigned UI for alert monitoring dashboard; onboarded 12,000 compute resources",
+        bullets: [
+          "Built MVP and redesigned UI for alert monitoring dashboard; onboarded 12,000 compute resources",
+        ],
       },
-      {
-        type: "tags",
-        tags: ["Python / Django", "RabbitMQ", "Redis", "D3.js"],
-      },
+      { type: "tags", tags: ["Python / Django", "RabbitMQ", "Redis", "D3.js"] },
     ],
   },
 ];
+
+/* ─── Tier style maps ────────────────────────────────────────────────────── */
+
+const tierStyles = {
+  1: {
+    background: (secondary?: boolean) =>
+      secondary
+        ? "linear-gradient(145deg, #241520, #190E18)"
+        : "linear-gradient(145deg, #2A1728, #1C0F1A)",
+    border: "0.5px solid rgba(201,133,106,0.15)",
+    borderRadius: "10px",
+    padding: "13px 15px",
+    accentHeight: "2px",
+    accent: (ntu?: boolean) =>
+      ntu
+        ? "linear-gradient(90deg, #D4A96A, rgba(212,169,106,0.15) 70%, transparent 100%)"
+        : "linear-gradient(90deg, #C9856A, rgba(201,133,106,0.15) 70%, transparent 100%)",
+    titleSize: "14px",
+    titleWeight: 600,
+    titleColor: "#EDE5F0",
+    datesSize: "11px",
+    datesColor: "#D4A96A",
+    bulletSize: "12px",
+    bulletColor: "#90788E",
+    bulletDot: "#C9856A",
+  },
+  2: {
+    background: () => "linear-gradient(145deg, #1E1020, #150C15)",
+    border: "0.5px solid rgba(201,133,106,0.09)",
+    borderRadius: "10px",
+    padding: "13px 15px",
+    accentHeight: "1.5px",
+    accent: () =>
+      "linear-gradient(90deg, rgba(201,133,106,0.5), rgba(201,133,106,0.08) 70%, transparent 100%)",
+    titleSize: "13px",
+    titleWeight: 600,
+    titleColor: "#C8B8C4",
+    datesSize: "11px",
+    datesColor: "#A88A70",
+    bulletSize: "12px",
+    bulletColor: "#7A6878",
+    bulletDot: "rgba(201,133,106,0.5)",
+  },
+  3: {
+    background: () => "rgba(201,133,106,0.025)",
+    border: "0.5px solid rgba(201,133,106,0.06)",
+    borderRadius: "8px",
+    padding: "10px 12px",
+    accentHeight: "1px",
+    accent: () =>
+      "linear-gradient(90deg, rgba(201,133,106,0.12), transparent)",
+    titleSize: "13px",
+    titleWeight: 500,
+    titleColor: "#9A8A96",
+    datesSize: "11px",
+    datesColor: "#7A6858",
+    bulletSize: "11px",
+    bulletColor: "#5A4A58",
+    bulletDot: "rgba(201,133,106,0.3)",
+  },
+} as const;
 
 /* ─── Sub-components ─────────────────────────────────────────────────────── */
 
@@ -153,7 +220,7 @@ function BadgeConnector({ label }: { label: string }) {
   return (
     <div style={{ display: "flex", alignItems: "center", gap: "6px", margin: "3px 0" }}>
       <div style={{ flex: 1, height: "0.5px", background: "rgba(201,133,106,0.12)" }} />
-      <span style={{ fontSize: "10px", fontFamily: "monospace", color: "rgba(201,133,106,0.6)" }}>
+      <span style={{ fontSize: "11px", fontFamily: "monospace", color: "rgba(201,133,106,0.6)" }}>
         {label}
       </span>
       <div style={{ flex: 1, height: "0.5px", background: "rgba(201,133,106,0.12)" }} />
@@ -168,7 +235,7 @@ function TagRow({ tags }: { tags: string[] }) {
         <span
           key={tag}
           style={{
-            fontSize: "10px",
+            fontSize: "11px",
             padding: "2px 7px",
             borderRadius: "20px",
             background: "rgba(201,133,106,0.07)",
@@ -183,111 +250,93 @@ function TagRow({ tags }: { tags: string[] }) {
   );
 }
 
-function FeaturedCard({ card, reducedMotion }: { card: FeaturedCardData; reducedMotion: boolean | null }) {
-  const bg = card.secondary
-    ? "linear-gradient(145deg, #241520, #190E18)"
-    : "linear-gradient(145deg, #2A1728, #1C0F1A)";
-  const accentLine = card.accent === "#D4A96A"
-    ? "linear-gradient(90deg, #D4A96A, rgba(212,169,106,0.15) 70%, transparent 100%)"
-    : "linear-gradient(90deg, #C9856A, rgba(201,133,106,0.15) 70%, transparent 100%)";
+function Card({ card, reducedMotion }: { card: CardData; reducedMotion: boolean | null }) {
+  const s = tierStyles[card.tier];
 
   return (
     <motion.div
       whileHover={reducedMotion ? undefined : {
-        y: -3,
+        scale: 1.025,
+        zIndex: 10,
+        borderColor: "rgba(201,133,106,0.28)",
         boxShadow: "0 8px 28px rgba(0,0,0,0.3), 0 0 0 0.5px rgba(201,133,106,0.1)",
       }}
       transition={{ duration: 0.25, ease: "easeOut" as const }}
       style={{
         position: "relative",
-        background: bg,
-        border: "0.5px solid rgba(201,133,106,0.15)",
-        borderRadius: "10px",
-        padding: "12px 14px",
+        zIndex: 1,
+        background: s.background(card.secondary),
+        border: s.border,
+        borderRadius: s.borderRadius,
+        padding: s.padding,
         marginBottom: "6px",
         overflow: "hidden",
         cursor: "default",
-        transition: "border-color 0.25s ease",
+        transition: "transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease",
       }}
-      className="exp-card"
     >
       {/* Top accent bar */}
       <div
         style={{
           position: "absolute",
           top: 0, left: 0, right: 0,
-          height: "2px",
-          background: accentLine,
+          height: s.accentHeight,
+          background: s.accent(card.ntuAccent),
         }}
       />
+
+      {/* Context line */}
       {card.contextLine && (
-        <div style={{ fontSize: "10px", color: "#6B5868", fontStyle: "italic", marginBottom: "5px" }}>
+        <div style={{
+          fontSize: "11px",
+          color: "#6B5868",
+          fontStyle: "italic",
+          marginBottom: "5px",
+        }}>
           {card.contextLine}
         </div>
       )}
-      <div style={{ fontSize: "12px", fontWeight: 600, color: "#EDE5F0", lineHeight: 1.3 }}>
+
+      {/* Title */}
+      <div style={{
+        fontSize: s.titleSize,
+        fontWeight: s.titleWeight,
+        color: s.titleColor,
+        lineHeight: 1.3,
+      }}>
         {card.title}
       </div>
-      <div style={{ fontSize: "10px", color: "#D4A96A", fontFamily: "monospace", marginBottom: "8px", marginTop: "2px" }}>
+
+      {/* Dates */}
+      <div style={{
+        fontSize: s.datesSize,
+        color: s.datesColor,
+        fontFamily: "monospace",
+        marginBottom: "8px",
+        marginTop: "2px",
+      }}>
         {card.dates}
       </div>
-      <div style={{ display: "flex", flexDirection: "column", gap: 0 }}>
+
+      {/* Bullets */}
+      <div style={{ display: "flex", flexDirection: "column" }}>
         {card.bullets.map((b) => (
           <div
             key={b}
             style={{
-              fontSize: "11px",
-              color: "#90788E",
-              lineHeight: 1.5,
+              fontSize: s.bulletSize,
+              color: s.bulletColor,
+              lineHeight: card.tier === 3 ? 1.4 : 1.5,
               paddingLeft: "10px",
               position: "relative",
               marginBottom: "4px",
             }}
           >
-            <span style={{ position: "absolute", left: 0, color: "#C9856A" }}>·</span>
+            <span style={{ position: "absolute", left: 0, color: s.bulletDot }}>·</span>
             {b}
           </div>
         ))}
       </div>
-    </motion.div>
-  );
-}
-
-function CompactCard({ card, reducedMotion }: { card: CompactCardData; reducedMotion: boolean | null }) {
-  return (
-    <motion.div
-      whileHover={reducedMotion ? undefined : {
-        y: -3,
-        boxShadow: "0 8px 28px rgba(0,0,0,0.3), 0 0 0 0.5px rgba(201,133,106,0.1)",
-      }}
-      transition={{ duration: 0.25, ease: "easeOut" as const }}
-      style={{
-        position: "relative",
-        background: "rgba(201,133,106,0.03)",
-        border: "0.5px solid rgba(201,133,106,0.08)",
-        borderRadius: "8px",
-        padding: "9px 11px",
-        marginBottom: "6px",
-        overflow: "hidden",
-        cursor: "default",
-        transition: "border-color 0.25s ease",
-      }}
-      className="exp-card"
-    >
-      {/* Top accent bar */}
-      <div
-        style={{
-          position: "absolute",
-          top: 0, left: 0, right: 0,
-          height: "1px",
-          background: "linear-gradient(90deg, rgba(201,133,106,0.15), transparent)",
-        }}
-      />
-      <div style={{ fontSize: "11px", fontWeight: 500, color: "#BFB0BC" }}>{card.title}</div>
-      <div style={{ fontSize: "10px", color: "#90788E", fontFamily: "monospace", marginBottom: "4px" }}>
-        {card.dates}
-      </div>
-      <div style={{ fontSize: "10px", color: "#6B5868", lineHeight: 1.4 }}>{card.note}</div>
     </motion.div>
   );
 }
@@ -313,7 +362,7 @@ export default function Experience() {
           ref={headerRef}
           initial={{ opacity: 0, y: 30 }}
           animate={headerInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, ease: "easeOut" }}
+          transition={{ duration: 0.6, ease: "easeOut" as const }}
           className="mb-14"
         >
           <span
@@ -335,18 +384,12 @@ export default function Experience() {
           ref={timelineRef}
           initial={{ opacity: 0 }}
           animate={timelineInView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.5, ease: "easeOut" }}
+          transition={{ duration: 0.5, ease: "easeOut" as const }}
         >
           {/* Timeline row — hidden on mobile */}
           <div className="hidden md:block mb-8">
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: "1fr 1fr 1fr",
-                position: "relative",
-              }}
-            >
-              {/* The line itself */}
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", position: "relative" }}>
+              {/* Horizontal line */}
               <div
                 style={{
                   position: "absolute",
@@ -359,8 +402,6 @@ export default function Experience() {
                   zIndex: 0,
                 }}
               />
-
-              {/* Per-column dot + labels */}
               {columns.map((col) => (
                 <div
                   key={col.company}
@@ -373,11 +414,9 @@ export default function Experience() {
                     gap: "6px",
                   }}
                 >
-                  {/* Dates above */}
-                  <div style={{ fontSize: "10px", color: "#D4A96A", fontFamily: "monospace" }}>
+                  <div style={{ fontSize: "11px", color: "#D4A96A", fontFamily: "monospace" }}>
                     {col.dates}
                   </div>
-                  {/* Dot on the line */}
                   <div
                     style={{
                       width: "8px",
@@ -388,15 +427,7 @@ export default function Experience() {
                       boxShadow: `0 0 0 1px ${col.dot}`,
                     }}
                   />
-                  {/* Company name below */}
-                  <div
-                    style={{
-                      fontSize: "11px",
-                      fontWeight: 600,
-                      color: "#C9856A",
-                      letterSpacing: "0.03em",
-                    }}
-                  >
+                  <div style={{ fontSize: "12px", fontWeight: 600, color: "#C9856A", letterSpacing: "0.03em" }}>
                     {col.company}
                   </div>
                 </div>
@@ -411,7 +442,7 @@ export default function Experience() {
                 key={col.company}
                 initial={{ opacity: 0, y: 24 }}
                 animate={timelineInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.55, ease: "easeOut", delay: colIdx * 0.1 }}
+                transition={{ duration: 0.55, ease: "easeOut" as const, delay: colIdx * 0.1 }}
                 style={{ display: "flex", flexDirection: "column" }}
               >
                 {/* Mobile-only column header */}
@@ -428,10 +459,10 @@ export default function Experience() {
                     }}
                   />
                   <div>
-                    <div style={{ fontSize: "11px", fontWeight: 600, color: "#C9856A", letterSpacing: "0.03em" }}>
+                    <div style={{ fontSize: "12px", fontWeight: 600, color: "#C9856A", letterSpacing: "0.03em" }}>
                       {col.company}
                     </div>
-                    <div style={{ fontSize: "10px", color: "#D4A96A", fontFamily: "monospace" }}>
+                    <div style={{ fontSize: "11px", color: "#D4A96A", fontFamily: "monospace" }}>
                       {col.dates}
                     </div>
                   </div>
@@ -439,22 +470,9 @@ export default function Experience() {
 
                 {/* Cards */}
                 {col.items.map((item, itemIdx) => {
-                  if (item.type === "featured") {
+                  if (item.type === "card") {
                     return (
-                      <FeaturedCard
-                        key={item.title}
-                        card={item}
-                        reducedMotion={reducedMotion}
-                      />
-                    );
-                  }
-                  if (item.type === "compact") {
-                    return (
-                      <CompactCard
-                        key={item.title}
-                        card={item}
-                        reducedMotion={reducedMotion}
-                      />
+                      <Card key={item.title} card={item} reducedMotion={reducedMotion} />
                     );
                   }
                   if (item.type === "badge") {
